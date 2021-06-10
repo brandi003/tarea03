@@ -14,12 +14,12 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char **matriz){
-    for (int i=0 ; i<sizeof(matriz)/sizeof(matriz[0]) ; i++){
-        for (int j=0 ; j<sizeof(matriz[0])/sizeof(matriz[0][0])){
-            std::cout << matriz[i][j];
+void mostrar(char **matriz, int rows, int cols){
+    for(int i=0;i< rows;i++){
+        for(int j=0;j< cols;j++){
+            std::cout<<matriz[i][j]<<"\t";
         }
-        std:cout << std::endl;
+        std::cout<<std::endl;
     }
 }
 
