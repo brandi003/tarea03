@@ -31,9 +31,9 @@ int main(){
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
-                matriz[i][j]='*';
+                matriz[i][j]="*";
             }else{
-                matriz[i][j]='#';
+                matriz[i][j]="#";
             }
         }
     }
