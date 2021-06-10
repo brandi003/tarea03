@@ -27,7 +27,7 @@ int main(){
     int col=5;
     int fil=5;
     float prob=0.8;
-    char matriz[fil][col];
+    char** matriz[fil][col];
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
