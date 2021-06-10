@@ -7,7 +7,7 @@ int main(int argc , char *argv []) {
 	//Por omisión, se paraleliza con la capacidad del HW
 	int32_t nt    = omp_get_max_threads();
 	int32_t aSize = 20;
-	
+	std::cout << nt << std::endl;
 	///////////////////////////////////////
 	//  Read command-line parameters
 	std::string mystr;
