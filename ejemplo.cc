@@ -14,6 +14,15 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
+void mostrar(char* matriz){
+	for(int i=0;i< rows;i++){
+        for(int j=0;j< cols;j++){
+            std::cout<<matriz[i][j]<<"\t";
+        }
+        std::cout<<std::endl;
+    }
+}
+
 int main(){
     int col=5;
     int fil=5;
@@ -28,12 +37,7 @@ int main(){
             }
         }
     }
-    for(int i=0;i< fil;i++){
-        for(int j=0;j< col;j++){
-            std::cout<<matriz[i][j];
-        }
-        std::cout<<std::endl;
-    }
+    mostrar(&matriz);
     
     return (EXIT_SUCCESS);
 }
