@@ -2,8 +2,8 @@
 #include <Timer.hpp>
 
 void get_vecinos(int x, int y, char* matriz, char* vacia){
-	fil=sizeof(matriz)/sizeof(matriz[0]);
-	col=sizeof(matriz[0])/sizeof(matriz[0][0]);
+	int fil=sizeof(matriz)/sizeof(matriz[0]);
+	int col=sizeof(matriz[0])/sizeof(matriz[0][0]);
 	int vecinos[]=[[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]];
 
 	for (size_t i=8;i>=0;i--){
