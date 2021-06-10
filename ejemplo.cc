@@ -8,7 +8,8 @@
 #include <random>
 #include <iomanip>
 
-
+int col;
+int fil;
 
 float generar_numero(){
     return (float)(rand())/RAND_MAX;
@@ -24,8 +25,8 @@ void mostrar(auto matriz, int filas, int columnas){
 }*/
 
 int main(){
-    int col=5;
-    int fil=5;
+    col=5;
+    fil=5;
     float prob=0.8;
     char matriz[fil][col];
     for (int i=0 ; i<fil ; i++){
