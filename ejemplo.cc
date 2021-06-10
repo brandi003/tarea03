@@ -1,63 +1,47 @@
 #include <global.hh>
 #include <Timer.hpp>
+#include <iostream>
+#include <random>
+#include <iomanip>
 
-void get_vecinos(int x, int y, char[][] matriz, char* vacia){
-	int fil=sizeof(matriz)/sizeof(matriz[0]);
-	int col=sizeof(matriz[0])/sizeof(matriz[0][0]);
-	int vecinos[]=[[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]];
+#include <iostream>
+#include <random>
+#include <iomanip>
 
-	for (size_t i=8;i>=0;i--){
-		if(vecinos[i][0]<0 || vecinos[i][0]>(col-1)){
-			std::erase(vecinos,vecinos[i]);
-			continue;
-		}
-		if(vecinos[i][1]<0 || vecinos[i][1]>(col-1)){
-			std::erase(vecinos,vecinos[i]);
-			continue;
-		}
-	}
+
+
+float generar_numero(){
+    return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char* matriz){
-	for (size_t i = 0 ; i<(sizeof(matriz)/sizeof(matriz[0])) : i++){
-		for (size_t j = 0 ; j < (sizeof(matriz[0])/sizeof(matriz[0][0])) ; j++){
-			std::cout << matriz[i][j] << ",";
-		}
-		std::cout << std:endl;
-	}
+void mostrar(char **matriz, int rows, int cols){
+    for(int i=0;i< rows;i++){
+        for(int j=0;j< cols;j++){
+            std::cout<<matriz[i][j]<<"\t";
+        }
+        std::cout<<std::endl;
+    }
 }
 
-char* matriz_vacia(int col, int fil){
-	char[fil][col] vacia;
-	for (size_t i = 0 ; i < fil ; i++){
-		for (size_t j = 0 ; j < col ; j++){
-			vacia[i][j]="#"
-		}
-	}
-	return matriz;
+int main(){
+    int col=5;
+    int fil=5;
+    float prob=0.8;
+    char matriz[fil][col];
+    for (int i=0 ; i<fil ; i++){
+        for (int j=0 ; j<col ; j++){
+            if(prob>=generar_numero()){
+                matriz[i][j]='*';
+            }else{
+                matriz[i][j]='#';
+            }
+        }
+    }
+    
+    
+    return (EXIT_SUCCESS);
 }
 
-int main(int argc , char *argv []) {
-	std::random_device rd;
-    std::default_random_engine eng(rd());
-    std::uniform_real_distribution<float> distr(0, 1);
-	int col=5;
-	int fil=5;
-	float prob=0.8;
-	char[fil][col] matriz;
-	for (size_t i = 0 ; i < fil ; i++){
-		for (size_t j = 0 ; j < col ; j++){
-			if(prob>=distr(eng)){
-				matriz[i][j]="*";
-			}else{
-				matriz[i][j]="#"
-			}
-		}
-	}
-	mostrar(matriz);
-
-	return(EXIT_SUCCESS);
-}
 
 
 /*
