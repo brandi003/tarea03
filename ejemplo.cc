@@ -30,7 +30,7 @@ int main(){
     }
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
-            std::cout<<matriz[i][j]<<"\t";
+            std::cout<<matriz[i][j];
         }
         std::cout<<std::endl;
     }
