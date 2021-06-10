@@ -14,20 +14,11 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char **matriz, int rows, int cols){
-    for(int i=0;i< rows;i++){
-        for(int j=0;j< cols;j++){
-            std::cout<<matriz[i][j]<<"\t";
-        }
-        std::cout<<std::endl;
-    }
-}
-
 int main(){
     int col=5;
     int fil=5;
     float prob=0.8;
-    char** matriz[fil][col];
+    char matriz[fil][col];
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
@@ -37,7 +28,12 @@ int main(){
             }
         }
     }
-    mostrar(matriz,fil,col);
+    for(int i=0;i< fil;i++){
+        for(int j=0;j< col;j++){
+            std::cout<<matriz[i][j]<<"\t";
+        }
+        std::cout<<std::endl;
+    }
     
     return (EXIT_SUCCESS);
 }
