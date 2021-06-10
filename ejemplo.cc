@@ -1,7 +1,7 @@
 #include <global.hh>
 #include <Timer.hpp>
 
-void get_vecinos(int x, int y, char* matriz, char* vacia){
+void get_vecinos(int x, int y, char[][] matriz, char* vacia){
 	int fil=sizeof(matriz)/sizeof(matriz[0]);
 	int col=sizeof(matriz[0])/sizeof(matriz[0][0]);
 	int vecinos[]=[[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]];
