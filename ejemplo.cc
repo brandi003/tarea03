@@ -34,13 +34,11 @@ int main(int argc , char *argv []) {
 	for(size_t i = 0; i < aSize; ++i){	
 		datos[i] = unif(gen);
 		
-		/*
 		int32_t thID = omp_get_thread_num();
 		#pragma omp critical
 		{
 			std::cout << "thID:" << thID << ", dato[" << i << "]="<< datos[i] << std::endl;
 		}
-		*/
 	}
 	t1.stop();
 	
