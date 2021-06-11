@@ -49,7 +49,7 @@ char** generar_vacia(int fil, int col){
     return matriz;
 }
 
-char** step(char **matriz, int fil, int col, int32_t nt){
+char** stepP(char **matriz, int fil, int col, int32_t nt){
     char** vacia=generar_vacia(fil,col);
     for (int i=0 ;  i<fil ; i++){
     	#pragma omp parallel for num_threads(nt)
@@ -74,6 +74,34 @@ char** step(char **matriz, int fil, int col, int32_t nt){
 	    			vacia[i][j]='#';
 	    		}
     		}
+
+    	}
+    }
+    return vacia;
+}
+
+char** stepS(char **matriz, int fil, int col){
+    char** vacia=generar_vacia(fil,col);
+    for (int i=0 ;  i<fil ; i++){
+    	for (int j=0 ; j<col ; j++){
+    		int cont=0;
+    		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
+    		bool* vecinosB=get_vecinos(i,j,fil,col);
+    		for (int k=0; k<8 ; k++){
+    			if(vecinosB[k]){
+    				if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
+    					cont=cont+1;
+    				}
+    			}
+    		}
+			if(matriz[i][j]=='#' && cont==3){
+    			vacia[i][j]='*';
+    		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
+    			vacia[i][j]='*';
+    		}else{
+    			vacia[i][j]='#';
+    		}
+    		
 
     	}
     }
@@ -130,12 +158,21 @@ int main(int argc , char *argv []){
     if(show){
 		mostrar(matriz,fil,col);
 	}
+	Timer t1;
+	t1.start();
     for (int i=0 ; i<iter ; i++){
-    	if(show){
-    		mostrar(matriz,fil,col);
+    	if(seq){
+    		stepS(matriz,fil,col);
+    	}else{
+    		stepP(matriz,fil,col,nt);
     	}
-    	step(matriz,fil,col,nt);
+		if(show){
+			mostrar(matriz,fil,col);
+		}
+    	
     }
+    t1.stop();
+    std::cout << "elapsed:" <<  t1.elapsed<std::chrono::milliseconds>() << "ms\n";
     
 
     return (EXIT_SUCCESS);
