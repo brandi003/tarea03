@@ -170,7 +170,7 @@ int main(int argc , char *argv []){
 		if(show){
 			mostrar(matriz,fil,col);
 		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
     	
     }
     t1.stop();
