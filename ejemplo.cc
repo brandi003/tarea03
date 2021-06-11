@@ -17,7 +17,9 @@ bool* get_vecinos(int x, int y, int fil, int col){
 	for (int i=7 ; i>=0 ; i--){
 		if(vecinos[i][0]<0 || vecinos[i][0]>(col-1) || vecinos[i][1]<0 || vecinos[i][1]>(fil-1)){
 			vecinosB[i]=true;
+			std::cout << true << std::endl;
 		}else{
+			std::cout << false << std::endl;
 			vecinosB[i]=false;
 		}
 	}
