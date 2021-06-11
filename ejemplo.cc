@@ -14,35 +14,29 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(std::list<std::list<char>> matriz,int fil,int col){
-	std::list<char>::iterator pos;
-	pos=matriz.begin();
-	while (pos!=matriz.end()){
-		std::list<char>::iterator pos2;
-		pos2=*pos.begin();
-		while(pos2!=*pos.end()){
-			std:cout << *pos2 << " ";
-			*pos2++;
-		}
-		*pos++;
-		std::cout << std::endl;
-	}
+void imprimirArreglo(int **matriz, int rows, int cols){
+    for(int i=0;i< rows;i++){
+        for(int j=0;j< cols;j++){
+            cout<<matriz[i][j]<<"\t";
+        }
+        cout<<endl;
+    }
+}
 
 int main(){
     int col=5;
     int fil=5;
     float prob=0.8;
-    std::list<std::list<char>> matriz;
+    char** matriz = new char*[fil];
     for (int i=0 ; i<fil ; i++){
-    	std::list<char> aux;
+    	matriz[i] = new char[col];
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
-                aux.push_back('*');
+                matriz[i][j]='*';
             }else{
-               	aux.push_back('#');
+               	matriz[i][j]='#';
             }
         }
-        matriz.push_back(aux);
     }
 
     mostrar(matriz,fil,col);
