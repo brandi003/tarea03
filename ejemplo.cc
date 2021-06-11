@@ -14,7 +14,7 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char matriz, int filas, int columnas){
+void mostrar(char* matriz, int filas, int columnas){
 	/*for(int i=0;i< filas;i++){
         for(int j=0;j< columnas;j++){
             std::cout<<matriz[i][j]<<"\t";
@@ -37,7 +37,7 @@ int main(){
             }
         }
     }
-    mostrar(matriz,fil,col);
+    mostrar((char *)matriz,fil,col);
     return (EXIT_SUCCESS);
 }
 
