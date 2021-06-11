@@ -37,7 +37,7 @@ int main(){
             }
         }
     }
-    mostrar((char *)matriz,fil,col);
+    mostrar(matriz,fil,col);
     return (EXIT_SUCCESS);
 }
 
