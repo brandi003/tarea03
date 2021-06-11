@@ -56,7 +56,7 @@ char** step(char **matriz, int fil, int col){
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
     		bool* vecinosB=get_vecinos(i,j,fil,col);
     		for (int k=0; k<8 ; k++){
-    			std::cout << "alo" << j << std::endl;
+    			std::cout << "alo" << k << std::endl;
     			if(vecinosB[k]){
     				if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
     					cont=cont+1;
