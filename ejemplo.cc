@@ -105,10 +105,10 @@ int main(int argc , char *argv []){
 			prob = atoi(argv[i+1]);
 		}
 		if (mystr == "-seq") {
-			seq = atoi(argv[i+1]);
+			seq = true;
 		}
 		if (mystr == "-show") {
-			show = atoi(argv[i+1]);
+			show = true;
 		}
 		if (mystr == "-iter") {
 			iter = atoi(argv[i+1]);
