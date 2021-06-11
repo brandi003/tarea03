@@ -43,7 +43,7 @@ int main(){
         matriz.push_back(aux);
     }
 
-    mostrar(matriz.fil,col);
+    mostrar(matriz,fil,col);
     return (EXIT_SUCCESS);
 }
 
