@@ -15,10 +15,10 @@ float generar_numero(){
 }
 
 void mostrar(std::list<std::list<char>> matriz,int fil,int col){
-	list<char>::iterator pos;
+	std::list<char>::iterator pos;
 	pos=matriz.begin();
 	while (pos!=matriz.end()){
-		*list<char>::iterator pos2;
+		std::list<char>::iterator pos2;
 		pos2=*pos.begin();
 		while(pos2!=*pos.end()){
 			std:cout << *pos2 << " ";
