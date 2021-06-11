@@ -163,9 +163,9 @@ int main(int argc , char *argv []){
     for (int i=0 ; i<iter ; i++){
     	int x=system("clear");
     	if(seq){
-    		stepS(matriz,fil,col);
+    		matriz=stepS(matriz,fil,col);
     	}else{
-    		stepP(matriz,fil,col,nt);
+    		matriz=stepP(matriz,fil,col,nt);
     	}
 		if(show){
 			mostrar(matriz,fil,col);
