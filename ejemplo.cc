@@ -66,10 +66,6 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     				}
     			}
     		}
-    		#pragma omp critical
-    		{
-    			std::cout << "("<<i<<","<<j<<")" << std::endl;
-    		}
     		if(matriz[i][j]=='#' && cont==3){
 
     			vacia[i][j]='*';
@@ -98,7 +94,6 @@ char** stepS(char **matriz, int fil, int col){
     				}
     			}
     		}
-    		std::cout << "("<<i<<","<<j<<")" << std::endl;
 			if(matriz[i][j]=='#' && cont==3){
     			vacia[i][j]='*';
     		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
