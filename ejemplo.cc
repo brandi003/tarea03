@@ -159,7 +159,7 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
 	Timer t1;
-	float time=0
+	float time=0;
     for (int i=0 ; i<iter ; i++){
 		t1.start();
     	if(seq){
