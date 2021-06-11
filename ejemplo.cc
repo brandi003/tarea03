@@ -18,7 +18,7 @@ int main(){
     int col=5;
     int fil=5;
     float prob=0.8;
-    std::list<std::list<char>> matriz
+    std::list<std::list<char>> matriz;
     for (int i=0 ; i<fil ; i++){
     	std::list<char> aux;
         for (int j=0 ; j<col ; j++){
