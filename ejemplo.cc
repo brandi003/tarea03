@@ -11,7 +11,7 @@
 
 
 char** get_vecinos(int x, int y, char **matriz, int fil, int col){
-	int vecinos[][]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
+	int vecinos[8][2]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
 }
 
 float generar_numero(){
