@@ -23,7 +23,7 @@ void mostrar(char **matriz, int rows, int cols){
     }
 }
 
-char** vacia(int fil, int col){
+char** generar_vacia(int fil, int col){
 	char** matriz = new char*[fil];
     for (int i=0 ; i<fil ; i++){
     	matriz[i] = new char[col];
@@ -50,7 +50,7 @@ int main(){
         }
     }
     mostrar(matriz,fil,col);
-    char** vacia=vacia(fil,col);
+    char** vacia=generar_vacia(fil,col);
     mostrar(vacia,fil,col);
     return (EXIT_SUCCESS);
 }
