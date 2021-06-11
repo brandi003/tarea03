@@ -30,7 +30,7 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char **matriz, int fil, int col){
+void mostrar(bool **matriz, int fil, int col){
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
             std::cout<<matriz[i][j];
