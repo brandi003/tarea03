@@ -17,10 +17,21 @@ float generar_numero(){
 void mostrar(char **matriz, int rows, int cols){
     for(int i=0;i< rows;i++){
         for(int j=0;j< cols;j++){
-            std::cout<<matriz[i][j]<<"\t";
+            std::cout<<matriz[i][j];
         }
         std::cout<<std::endl;
     }
+}
+
+char** vacia(int fil, int col){
+	char** matriz = new char*[fil];
+    for (int i=0 ; i<fil ; i++){
+    	matriz[i] = new char[col];
+        for (int j=0 ; j<col ; j++){
+            matriz[i][j]='#';
+        }
+    }
+    return matriz;
 }
 
 int main(){
@@ -38,8 +49,9 @@ int main(){
             }
         }
     }
-
     mostrar(matriz,fil,col);
+    char** vacia=vacia(fil,col);
+    mostrar(vacia,fil,col);
     return (EXIT_SUCCESS);
 }
 
