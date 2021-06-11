@@ -14,12 +14,12 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void imprimirArreglo(int **matriz, int rows, int cols){
+void mostrar(int **matriz, int rows, int cols){
     for(int i=0;i< rows;i++){
         for(int j=0;j< cols;j++){
-            cout<<matriz[i][j]<<"\t";
+            std::cout<<matriz[i][j]<<"\t";
         }
-        cout<<endl;
+        std::cout<<std::endl;
     }
 }
 
