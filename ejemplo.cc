@@ -74,7 +74,7 @@ char** step(char **matriz, int fil, int col){
 
     	}
     }
-    mostrar(vacia,fil,col)
+    mostrar(vacia,fil,col);
     return vacia;
 }
 
