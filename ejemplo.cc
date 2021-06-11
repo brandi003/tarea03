@@ -49,7 +49,7 @@ char** generar_vacia(int fil, int col){
     return matriz;
 }
 
-char** step(char **matriz, int fil, int col){
+char** step(char **matriz, int fil, int col, int32_t nt){
     char** vacia=generar_vacia(fil,col);
     for (int i=0 ;  i<fil ; i++){
     	#pragma omp parallel for num_threads(nt)
@@ -126,6 +126,9 @@ int main(){
             }
         }
     }
+
+    mostrar(matriz,fil,col);
+    step(matriz,fil,col,nt);
     
 
     return (EXIT_SUCCESS);
