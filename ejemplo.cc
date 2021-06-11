@@ -35,7 +35,7 @@ void mostrar(char **matriz, int fil, int col){
         }
         std::cout<<std::endl;
     }
-    std::cout << "\n" << std::endl;
+    std::cout << std::endl;
 }
 
 char** generar_vacia(int fil, int col){
@@ -95,11 +95,12 @@ int main(){
         }
     }
     mostrar(matriz,fil,col);
-    step(matriz,fil,col);
-    step(matriz,fil,col);
-    step(matriz,fil,col);
-    step(matriz,fil,col);
-    step(matriz,fil,col);
+    matriz=step(matriz,fil,col);
+    matriz=step(matriz,fil,col);
+    matriz=step(matriz,fil,col);
+    matriz=step(matriz,fil,col);
+    matriz=step(matriz,fil,col);
+    matriz=step(matriz,fil,col);
     
 
     return (EXIT_SUCCESS);
