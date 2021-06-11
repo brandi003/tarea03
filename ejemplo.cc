@@ -47,12 +47,13 @@ char** generar_vacia(int fil, int col){
 }
 
 char** step(char **matriz, int fil, int col){
-    //char** vacia=generar_vacia(fil,col);
+    char** vacia=generar_vacia(fil,col);
     for (int i=0 ;  i<fil ; i++){
     	for (int j=0 ; j<col ; j++){
 
     	}
     }
+    return vacia;
 }
 
 int main(){
