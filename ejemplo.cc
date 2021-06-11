@@ -55,7 +55,6 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     char** vacia=generar_vacia(fil,col);
     #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
-    	#pragma omp parallel for num_threads(nt)
     	for (int j=0 ; j<col ; j++){
     		int cont=0;
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
@@ -66,11 +65,11 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     					cont=cont+1;
     				}
     			}
-    		}/*
+    		}
     		#pragma omp critical
     		{
     			std::cout << "("<<i<<","<<j<<")" << std::endl;
-    		}*/
+    		}
     		if(matriz[i][j]=='#' && cont==3){
 
     			vacia[i][j]='*';
@@ -99,7 +98,7 @@ char** stepS(char **matriz, int fil, int col){
     				}
     			}
     		}
-    		//std::cout << "("<<i<<","<<j<<")" << std::endl;
+    		std::cout << "("<<i<<","<<j<<")" << std::endl;
 			if(matriz[i][j]=='#' && cont==3){
     			vacia[i][j]='*';
     		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
