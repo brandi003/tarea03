@@ -65,7 +65,7 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     			}
     		}
     		if(matriz[i][j]=='#' && cont==3){
-    			
+
     			vacia[i][j]='*';
     		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
     			vacia[i][j]='*';
@@ -159,6 +159,7 @@ int main(int argc , char *argv []){
 	Timer t1;
 	t1.start();
     for (int i=0 ; i<iter ; i++){
+    	std::clrscr();
     	if(seq){
     		stepS(matriz,fil,col);
     	}else{
