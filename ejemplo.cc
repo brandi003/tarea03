@@ -68,10 +68,8 @@ char** step(char **matriz, int fil, int col, int32_t nt){
     		{
     			if(matriz[i][j]=='#' && cont==3){
 	    			vacia[i][j]='*';
-	    			continue;
 	    		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
 	    			vacia[i][j]='*';
-	    			continue;
 	    		}else{
 	    			vacia[i][j]='#';
 	    		}
