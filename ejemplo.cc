@@ -53,8 +53,8 @@ char** generar_vacia(int fil, int col){
 
 char** stepP(char **matriz, int fil, int col, int32_t nt){
     char** vacia=generar_vacia(fil,col);
-    #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
+    	#pragma omp parallel for num_threads(nt)
     	for (int j=0 ; j<col ; j++){
     		int cont=0;
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
@@ -120,7 +120,7 @@ int main(int argc , char *argv []){
     int32_t nt=omp_get_max_threads();
 	bool seq=false;
 	bool show=false;
-	int iter=10;
+	int iter=5;
 
 	std::string mystr;
 	for (int i=0; i < argc; i++) {
