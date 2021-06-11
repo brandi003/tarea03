@@ -159,22 +159,22 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
 	Timer t1;
-	t1.start();
+	float time=0
     for (int i=0 ; i<iter ; i++){
-    	int x=system("clear");
+		t1.start();
     	if(seq){
     		matriz=stepS(matriz,fil,col);
     	}else{
     		matriz=stepP(matriz,fil,col,nt);
     	}
+    	t1.stop();
+    	time=time+t1.elapsed();
 		if(show){
 			mostrar(matriz,fil,col);
 		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     	
     }
-    t1.stop();
-    std::cout << "elapsed:" <<  t1.elapsed<std::chrono::milliseconds>() << "ms\n";
+    std::cout << "elapsed:" <<  time << "ms\n";
     
 
     return (EXIT_SUCCESS);
