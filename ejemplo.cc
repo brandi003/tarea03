@@ -83,7 +83,7 @@ char** step(char **matriz, int fil, int col, int32_t nt){
     return vacia;
 }
 
-int main(){
+int main(int argc , char *argv []){
     int col=5;
     int fil=5;
     float prob=0.8;
