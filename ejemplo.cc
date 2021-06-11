@@ -77,7 +77,6 @@ char** step(char **matriz, int fil, int col, int32_t nt){
 
     	}
     }
-    mostrar(vacia,fil,col);
     return vacia;
 }
 
@@ -88,6 +87,7 @@ int main(int argc , char *argv []){
     int32_t nt=omp_get_max_threads();
 	bool seq=false;
 	bool show=false;
+	int iter=10;
 
 	std::string mystr;
 	for (int i=0; i < argc; i++) {
@@ -110,6 +110,9 @@ int main(int argc , char *argv []){
 		if (mystr == "-show") {
 			show = atoi(argv[i+1]);
 		}
+		if (mystr == "-iter") {
+			iter = atoi(argv[i+1]);
+		}
 	}
 
 
@@ -124,9 +127,15 @@ int main(int argc , char *argv []){
             }
         }
     }
-
-    mostrar(matriz,fil,col);
-    step(matriz,fil,col,nt);
+    if(show){
+		mostrar(matriz,fil,col);
+	}
+    for (int i=0 ; i<iter ; i++){
+    	if(show){
+    		mostrar(matriz,fil,col);
+    	}
+    	step(matriz,fil,col,nt);
+    }
     
 
     return (EXIT_SUCCESS);
