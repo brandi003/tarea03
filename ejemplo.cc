@@ -168,7 +168,7 @@ int main(int argc , char *argv []){
     		matriz=stepP(matriz,fil,col,nt);
     	}
     	t1.stop();
-    	time=time+t1.elapsed<std::chrono::milliseconds>()
+    	time=time+t1.elapsed<std::chrono::milliseconds>();
 		if(show){
 			mostrar(matriz,fil,col);
 		}
