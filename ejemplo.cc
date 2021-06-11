@@ -8,25 +8,24 @@
 #include <random>
 #include <iomanip>
 
-int col;
-int fil;
+
 
 float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char matriz[fil][col], int filas, int columnas){
-	for(int i=0;i< filas;i++){
+void mostrar(char matriz, int filas, int columnas){
+	/*for(int i=0;i< filas;i++){
         for(int j=0;j< columnas;j++){
             std::cout<<matriz[i][j]<<"\t";
         }
         std::cout<<std::endl;
-    }
+    }*/
 }
 
 int main(){
-    col=5;
-    fil=5;
+    int col=5;
+    int fil=5;
     float prob=0.8;
     char matriz[fil][col];
     for (int i=0 ; i<fil ; i++){
