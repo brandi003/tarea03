@@ -175,6 +175,7 @@ int main(int argc , char *argv []){
     	
     }
     std::cout << "elapsed:" << time << "ms\n";
+    std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
     
 
     return (EXIT_SUCCESS);
