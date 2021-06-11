@@ -66,7 +66,6 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     				}
     			}
     		}
-    		int32_t thID = omp_get_thread_num();
     		#pragma omp critical
     		{
     			std::cout << "("<<i<<","<<j<<")" << std::endl;
