@@ -52,6 +52,7 @@ char** generar_vacia(int fil, int col){
 char** step(char **matriz, int fil, int col){
     char** vacia=generar_vacia(fil,col);
     for (int i=0 ;  i<fil ; i++){
+    	#pragma omp parallel for num_threads(nt)
     	for (int j=0 ; j<col ; j++){
     		int cont=0;
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
@@ -63,14 +64,17 @@ char** step(char **matriz, int fil, int col){
     				}
     			}
     		}
-    		if(matriz[i][j]=='#' && cont==3){
-    			vacia[i][j]='*';
-    			continue;
-    		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
-    			vacia[i][j]='*';
-    			continue;
-    		}else{
-    			vacia[i][j]='#';
+    		#pragma omp critical
+    		{
+    			if(matriz[i][j]=='#' && cont==3){
+	    			vacia[i][j]='*';
+	    			continue;
+	    		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
+	    			vacia[i][j]='*';
+	    			continue;
+	    		}else{
+	    			vacia[i][j]='#';
+	    		}
     		}
 
     	}
@@ -83,6 +87,34 @@ int main(){
     int col=5;
     int fil=5;
     float prob=0.8;
+    int32_t nt=omp_get_max_threads();
+	bool seq=false;
+	bool show=false;
+
+
+	for (size_t i=0; i < argc; i++) {
+		mystr=argv[i];
+		if (mystr == "-ncol") {
+			col = atoi(argv[i+1]);
+		}
+		if (mystr == "-nfil") {
+			fil = atoi(argv[i+1]);
+		}
+		if (mystr == "-nt") {
+			nt = atoi(argv[i+1]);
+		}
+		if (mystr == "-plive") {
+			prob = atoi(argv[i+1]);
+		}
+		if (mystr == "-seq") {
+			seq = atoi(argv[i+1]);
+		}
+		if (mystr == "-show") {
+			show = atoi(argv[i+1]);
+		}
+	}
+
+
     char** matriz = new char*[fil];
     for (int i=0 ; i<fil ; i++){
     	matriz[i] = new char[col];
@@ -94,13 +126,6 @@ int main(){
             }
         }
     }
-    mostrar(matriz,fil,col);
-    matriz=step(matriz,fil,col);
-    matriz=step(matriz,fil,col);
-    matriz=step(matriz,fil,col);
-    matriz=step(matriz,fil,col);
-    matriz=step(matriz,fil,col);
-    matriz=step(matriz,fil,col);
     
 
     return (EXIT_SUCCESS);
@@ -108,7 +133,7 @@ int main(){
 
 
 
-/*
+
 int main(int argc , char *argv []) {
 	std::random_device dev;  
 	
