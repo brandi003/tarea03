@@ -52,7 +52,7 @@ char** step(char **matriz, int fil, int col){
     char** vacia=generar_vacia(fil,col);
     for (int i=0 ;  i<fil ; i++){
     	for (int j=0 ; j<col ; j++){
-    		cont=0;
+    		int cont=0;
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,y-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
     		bool* vecinosB=get_vecinos(i,j,fil,col);
     		for (int k=0; k<8 ; k++){
