@@ -7,6 +7,8 @@
 #include <iostream>
 #include <random>
 #include <iomanip>
+#include <stdio.h>
+#include <cstdlib>
 
 
 
@@ -159,7 +161,7 @@ int main(int argc , char *argv []){
 	Timer t1;
 	t1.start();
     for (int i=0 ; i<iter ; i++){
-    	std::clrscr();
+    	system("clear");
     	if(seq){
     		stepS(matriz,fil,col);
     	}else{
