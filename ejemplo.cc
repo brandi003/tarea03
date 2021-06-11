@@ -10,11 +10,12 @@
 
 
 
-char** get_vecinos(int x, int y, char **matriz, int fil, int col){
+int** get_vecinos(int x, int y, char **matriz, int fil, int col){
 	int vecinos[8][2]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
 	for (int i=7 ; i>=0 ; i--){
 		if(vecinos[i][0]<0 || vecinos[i][0]>(col-1) || vecinos[i][1]<0 || vecinos[i][1]>(fil-1)){
-			vecinos[i]={-1,-1};
+			vecinos[i][0]=-1;
+			vecinos[i][1]=-1;
 		}
 	}
 	return vecinos;
