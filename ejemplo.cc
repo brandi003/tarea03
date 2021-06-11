@@ -92,7 +92,7 @@ int main(int argc , char *argv []){
 	bool show=false;
 
 	std::string mystr;
-	for (size_t i=0; i < argc; i++) {
+	for (int i=0; i < argc; i++) {
 		mystr=argv[i];
 		if (mystr == "-ncol") {
 			col = atoi(argv[i+1]);
