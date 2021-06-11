@@ -10,13 +10,17 @@
 
 
 
+char** get_vecinos(int x, int y, char **matriz, int fil, int col){
+	vecinos[][]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
+}
+
 float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char **matriz, int rows, int cols){
-    for(int i=0;i< rows;i++){
-        for(int j=0;j< cols;j++){
+void mostrar(char **matriz, int fil, int col){
+    for(int i=0;i< fil;i++){
+        for(int j=0;j< col;j++){
             std::cout<<matriz[i][j];
         }
         std::cout<<std::endl;
@@ -32,6 +36,15 @@ char** generar_vacia(int fil, int col){
         }
     }
     return matriz;
+}
+
+char** step(char **matriz, int fil, int col){
+    char** vacia=generar_vacia(fil,col);
+    for (int i=0 ;  i<fil ; i++){
+    	for (int j=0 ; j<col ; j++){
+
+    	}
+    }
 }
 
 int main(){
@@ -50,7 +63,6 @@ int main(){
         }
     }
     mostrar(matriz,fil,col);
-    char** vacia=generar_vacia(fil,col);
     mostrar(vacia,fil,col);
     return (EXIT_SUCCESS);
 }
