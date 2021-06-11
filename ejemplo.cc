@@ -35,6 +35,7 @@ void mostrar(char **matriz, int fil, int col){
         }
         std::cout<<std::endl;
     }
+    std::cout << "\n" << std::endl;
 }
 
 char** generar_vacia(int fil, int col){
