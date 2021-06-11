@@ -11,7 +11,7 @@
 
 
 char** get_vecinos(int x, int y, char **matriz, int fil, int col){
-	vecinos[][]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
+	int vecinos[][]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
 }
 
 float generar_numero(){
@@ -63,7 +63,6 @@ int main(){
         }
     }
     mostrar(matriz,fil,col);
-    mostrar(vacia,fil,col);
     return (EXIT_SUCCESS);
 }
 
