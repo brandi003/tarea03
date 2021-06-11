@@ -161,7 +161,7 @@ int main(int argc , char *argv []){
 	Timer t1;
 	t1.start();
     for (int i=0 ; i<iter ; i++){
-    	system("clear");
+    	int x=system("clear");
     	if(seq){
     		stepS(matriz,fil,col);
     	}else{
@@ -170,6 +170,7 @@ int main(int argc , char *argv []){
 		if(show){
 			mostrar(matriz,fil,col);
 		}
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     	
     }
     t1.stop();
