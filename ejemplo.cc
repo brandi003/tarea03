@@ -148,9 +148,9 @@ int main(int argc , char *argv []){
 	}
 
 
-    boll** matriz = new boll*[fil];
+    bool** matriz = new bool*[fil];
     for (int i=0 ; i<fil ; i++){
-    	matriz[i] = new boll[col];
+    	matriz[i] = new bool[col];
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
                 matriz[i][j]=1;
