@@ -159,7 +159,7 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
 	Timer t1;
-	float time=0;
+	double time=0
     for (int i=0 ; i<iter ; i++){
 		t1.start();
     	if(seq){
@@ -168,13 +168,13 @@ int main(int argc , char *argv []){
     		matriz=stepP(matriz,fil,col,nt);
     	}
     	t1.stop();
-    	time=time+t1.elapsed();
+    	time=time+t1.elapsed<std::chrono::milliseconds>()
 		if(show){
 			mostrar(matriz,fil,col);
 		}
     	
     }
-    std::cout << "elapsed:" <<  time << "ms\n";
+    std::cout << "elapsed:" << time << "ms\n";
     
 
     return (EXIT_SUCCESS);
