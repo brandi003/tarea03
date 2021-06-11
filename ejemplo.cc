@@ -67,7 +67,10 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     			}
     		}
     		int32_t thID = omp_get_thread_num();
-    		std::cout << thID << " " << j <<std::endl;
+    		#pragma omp critical
+    		{
+    			std::cout << thID << " " << j << "|" << std::endl;
+    		}
     		if(matriz[i][j]=='#' && cont==3){
 
     			vacia[i][j]='*';
