@@ -119,7 +119,7 @@ void mostrar_bit(boost::dynamic_bitset<> matriz, int fil, int col){
     int cont=0;
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
-            std::cout << buscar_matriz(matriz,j,i,fil,col);
+            std::cout << matriz[(i*col)+j];
             cont++;
         }
         std::cout<<std::endl;
@@ -410,7 +410,7 @@ int main(int argc , char *argv []){
         }
 
         if(show){
-            mostrar(matriz,fil,col);
+            mostrar_bit(matriz,fil,col);
         }
         std::cout << std::endl;
         Timer t1;
