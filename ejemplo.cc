@@ -188,9 +188,9 @@ int main(int argc , char *argv []){
     for (int i=0 ; i<iter ; i++){
 		t1.start();
     	if(seq){
-    		matriz=stepS(matriz,fil,col);
+    		//matriz=stepS(matriz,fil,col);
     	}else{
-    		//matriz=stepP(matriz,fil,col,nt);
+    		matriz=stepP(matriz,fil,col,nt);
     	}
     	t1.stop();
     	time=time+t1.elapsed<std::chrono::milliseconds>();
