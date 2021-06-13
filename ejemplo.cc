@@ -340,7 +340,7 @@ int main(int argc , char *argv []){
     int iter=5;
     bool d_char=false;
     bool d_int=false;
-    bool d_bit=false
+    bool d_bit=false;
     bool flag=false;
     std::string mystr;
     int cont_datos=0
