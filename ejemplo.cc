@@ -189,7 +189,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
             bool* vecinosB=get_vecinos(i,j,fil,col);
 
             for (int k=0; k<8 ; k++){
-                if(!vecinosB[k]){
+                if(vecinosB[k]){
                     if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
                         cont=cont+1;
                     }
@@ -279,7 +279,7 @@ char** stepS_char(char **matriz, int fil, int col){
             std::cout << "(" << i << "," << j << ")" << std::endl;
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
-            bool* vecinosB=get_vecinos(i,j,fil,col);
+            bool* vecinosB=get_vecinos(i,j,coo,fil);
             std::cout << "(vecinos)" << std::endl;
             for (int k=0; k<8 ; k++){
                 if(vecinosB[k]){
