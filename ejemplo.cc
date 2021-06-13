@@ -129,7 +129,7 @@ char** stepS(char **matriz, int fil, int col){
 int main(int argc , char *argv []){
     int col=5;
     int fil=5;
-    float prob=0.8;
+    float prob=0.5;
     int32_t nt=omp_get_max_threads();
 	bool seq=false;
 	bool show=false;
@@ -168,6 +168,7 @@ int main(int argc , char *argv []){
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
+                std::cout << "alo" << std::endl;
                 matriz[cont]=1;
             }
             cont++;
