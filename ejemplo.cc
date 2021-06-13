@@ -66,7 +66,7 @@ void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
     }
     std::cout << std::endl;
 }
-
+/*
 char** stepP(char **matriz, int fil, int col, int32_t nt){
     char** vacia=generar_vacia(fil,col);
     #pragma omp parallel for num_threads(nt)
@@ -123,7 +123,7 @@ char** stepS(char **matriz, int fil, int col){
     	}
     }
     return vacia;
-}
+}*/
 
 int main(int argc , char *argv []){
     int col=5;
@@ -161,7 +161,7 @@ int main(int argc , char *argv []){
 	}
 
 
-    boost::dynamic_bitset<> matriz = buscar_matriz(fil,col);
+    boost::dynamic_bitset<> matriz = buscar_matriz(matriz,fil,col);
     int cont=0;
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
