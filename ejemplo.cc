@@ -54,13 +54,10 @@ void help(){
     std::cout << "tiene que ir acompañado por un numero entero mayor a 0"                       << std::endl;
     std::cout << std::endl;
     std::cout << "-bit  ---> ejecuta el programa usando bits como tipo de datos, no es "        << std::endl;
-    std::cout << "compatible con los parametros -char y -int"                                   << std::endl;
-    std::cout << std::endl;
-    std::cout << "-char  ---> ejecuta el programa usando chars como tipo de datos, no es "      << std::endl;
-    std::cout << "compatible con los parametros -bit y -int"                                    << std::endl;
+    std::cout << "compatible con los parametros -int (por defecto se usan chars"                << std::endl;
     std::cout << std::endl;
     std::cout << "-int  ---> ejecuta el programa usando enteros como tipo de datos, no es "     << std::endl;
-    std::cout << "compatible con los parametros -char y -bit"                                   << std::endl;
+    std::cout << "compatible con los parametros -bit (por defecto se usan chars"                << std::endl;
     std::cout << std::endl;
 }
 
@@ -338,7 +335,6 @@ int main(int argc , char *argv []){
     bool seq=false;
     bool show=false;
     int iter=5;
-    bool d_char=false;
     bool d_int=false;
     bool d_bit=false;
     bool flag=false;
@@ -374,10 +370,6 @@ int main(int argc , char *argv []){
         }
         if (mystr == "-int") {
             d_int=true;
-            cont_datos++;
-        }
-        if (mystr == "-char") {
-            d_char=true;
             cont_datos++;
         }
         if (mystr == "-help" || mystr == "-h") {
