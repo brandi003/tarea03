@@ -19,7 +19,7 @@ int buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col
 }
 
 boost::dynamic_bitset<> generar_matriz(int fil, int col){
-    return boost::dynamic_bitset<> x(fil*col);
+    return (boost::dynamic_bitset<> x(fil*col));
 }
 /*
 int main()
