@@ -164,6 +164,7 @@ int main(int argc , char *argv []){
 
     boost::dynamic_bitset<> matriz = generar_matriz(fil,col);
     int cont=0;
+    std::cout << matriz << std::endl;
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
