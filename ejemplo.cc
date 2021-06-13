@@ -187,6 +187,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,fil,col);
+            std::cout << "aloo" << std::endl;
             for (int k=0; k<8 ; k++){
                 if(vecinosB[k]){
                     if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
@@ -194,7 +195,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
                     }
                 }
             }
-            std::cout << "aloo" << std::endl;
+
 
             if(matriz[i][j]=='#' && cont==3){
 
