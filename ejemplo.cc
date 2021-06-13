@@ -174,6 +174,11 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
     mostrar(matriz,fil,col);
+    std::cout<< matriz[(0*col)+0] <<std::endl;
+    std::cout<< matriz[(1*col)+1] <<std::endl;
+    std::cout<< matriz[(2*col)+2] <<std::endl;
+    std::cout<< matriz[(3*col)+3] <<std::endl;
+    std::cout<< matriz[(4*col)+4] <<std::endl;
 	Timer t1;
 	double time=0;
     for (int i=0 ; i<iter ; i++){
