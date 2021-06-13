@@ -84,10 +84,13 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		}
             //std::cout<< i << " " << j << " " << buscar_matriz(matriz,j,i,fil,col) << std::endl;
     		if(matriz[(i*col)+j]==0 && cont==3){
+                std::cout << "en la posicion" << i << "," << j << "se cambio el valor de " << matriz[(i*col)+j] << "a 1" << std::endl;
     			vacia[(i*col)+j]=1;
     		}else if(matriz[(i*col)+j]==1 && (cont==2 || cont==3)){
+                std::cout << "en la posicion" << i << "," << j << "se cambio el valor de " << matriz[(i*col)+j] << "a 1" << std::endl;
     			vacia[(i*col)+j]=1;
     		}else{
+                std::cout << "en la posicion" << i << "," << j << "se cambio el valor de " << matriz[(i*col)+j] << "a 0" << std::endl;
     			vacia[(i*col)+j]=0;
     		}
 
