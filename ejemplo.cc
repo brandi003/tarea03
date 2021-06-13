@@ -172,6 +172,7 @@ int main(int argc , char *argv []){
             cont++;
         }
     }
+    std::cout << matriz << std::endl;
     mostrar(matriz,fil,col);
     /*
     if(show){
