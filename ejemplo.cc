@@ -14,7 +14,7 @@
 #include <iostream>
 #include <boost/dynamic_bitset.hpp>
 
-boost::dynamic_bitset<> buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col){
+int buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col){
     return matriz[(y*fil*col)+x];
 }
 
