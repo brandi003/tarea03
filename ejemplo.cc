@@ -151,8 +151,8 @@ void mostrar_int(int **matriz, int fil, int col){
 //Comienza seccion de ejecucion del juego de la vida con procesamiento paralelo
 boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int col, int32_t nt){
     boost::dynamic_bitset<> vacia=generar_matriz_bit(fil,col);
-    #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
+        #pragma omp parallel for num_threads(nt)
         for (int j=0 ; j<col ; j++){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
@@ -181,8 +181,8 @@ boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int c
 
 char** stepP_char(char **matriz, int fil, int col, int32_t nt){
     char** vacia=generar_vacia_char(fil,col);
-    #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
+        #pragma omp parallel for num_threads(nt)
         for (int j=0 ; j<col ; j++){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
@@ -213,8 +213,8 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
 
 int** stepP_int(int **matriz, int fil, int col, int32_t nt){
     int** vacia=generar_vacia_int(fil,col);
-    #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
+        #pragma omp parallel for num_threads(nt)
         for (int j=0 ; j<col ; j++){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
