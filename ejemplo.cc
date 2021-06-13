@@ -77,6 +77,7 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		bool* vecinosB=get_vecinos(i,j,fil,col);
             mostrar(matriz,fil,col);
             std::cout << "vecinos de (" << i << "," << j <<") son: " << std::endl;
+            std::cout << "valor=" << matriz[(i*col)+j] << std::endl;
     		for (int k=0; k<8 ; k++){
     			if(vecinosB[k]){
                     std::cout << "(" << vecinos[k][0] << "," << vecinos[k][1] << ")" << std::endl;
@@ -179,7 +180,7 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
     mostrar(matriz,fil,col);
-    std::cout<< matriz[(4*col)+3] <<std::endl;
+    std::cout<< matriz[(0*col)+0] <<std::endl;
     std::cout<< matriz[(0*col)+1] <<std::endl;
     std::cout<< matriz[(0*col)+2] <<std::endl;
     std::cout<< matriz[(0*col)+3] <<std::endl;
