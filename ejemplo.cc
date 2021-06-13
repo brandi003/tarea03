@@ -179,7 +179,7 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
     mostrar(matriz,fil,col);
-    std::cout<< matriz[(0*col)+0] <<std::endl;
+    std::cout<< matriz[(4*col)+3] <<std::endl;
     std::cout<< matriz[(0*col)+1] <<std::endl;
     std::cout<< matriz[(0*col)+2] <<std::endl;
     std::cout<< matriz[(0*col)+3] <<std::endl;
