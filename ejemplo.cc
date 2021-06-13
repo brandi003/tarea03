@@ -82,7 +82,7 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		bool* vecinosB=get_vecinos(i,j,fil,col);
     		for (int k=0; k<8 ; k++){
     			if(vecinosB[k]){
-                    std::cout << buscar_matriz(matriz,vecinos[k][1],vecinos[k][0],fil,col) std::endl;
+                    std::cout << buscar_matriz(matriz,vecinos[k][1],vecinos[k][0],fil,col) << std::endl;
     				if(buscar_matriz(matriz,vecinos[k][1],vecinos[k][0],fil,col)==1){
     					cont=cont+1;
     				}
