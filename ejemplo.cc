@@ -57,7 +57,7 @@ float generar_numero(){
 }
 
 void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
-    cont=cont+1
+    int cont=0;
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
             std::cout << buscar_matriz(matriz,j,i,fil,col);
