@@ -162,7 +162,7 @@ int main(int argc , char *argv []){
 	}
 
 
-    boost::dynamic_bitset<> matriz = buscar_matriz(matriz,fil,col);
+    boost::dynamic_bitset<> matriz = generar_matriz(matriz,fil,col);
     int cont=0;
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
