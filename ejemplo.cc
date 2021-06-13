@@ -18,6 +18,11 @@ int buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col
     return matriz[(y*col)+x];
 }
 
+boost::dynamic_bitset<> set_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col, int val){
+    matriz[(y*col)+x]=val;
+    return matriz;
+}
+
 boost::dynamic_bitset<> generar_matriz(int fil, int col){
     boost::dynamic_bitset<> x(fil*col);
     return x;
@@ -67,9 +72,9 @@ void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
     }
     std::cout << std::endl;
 }
-/*
-char** stepP(char **matriz, int fil, int col, int32_t nt){
-    char** vacia=generar_vacia(fil,col);
+
+boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, int32_t nt){
+    boost::dynamic_bitset<> vacia=generar_matriz(fil,col);
     #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
     	for (int j=0 ; j<col ; j++){
@@ -78,26 +83,25 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     		bool* vecinosB=get_vecinos(i,j,fil,col);
     		for (int k=0; k<8 ; k++){
     			if(vecinosB[k]){
-    				if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
+    				if(buscar_matriz(matriz,j,i,fil,col)==1){
     					cont=cont+1;
     				}
     			}
     		}
 
-    		if(matriz[i][j]=='#' && cont==3){
-
-    			vacia[i][j]='*';
-    		}else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
-    			vacia[i][j]='*';
+    		if(buscar_matriz(matriz,j,i,fil,col)=='#' && cont==3){
+    			buscar_matriz(matriz,j,i,fil,col,1);
+    		}else if(buscar_matriz(matriz,j,i,fil,col)=='*' && (cont==2 || cont==3)){
+    			buscar_matriz(matriz,j,i,fil,col,1);
     		}else{
-    			vacia[i][j]='#';
+    			buscar_matriz(matriz,j,i,fil,col,0);
     		}
 
     	}
     }
     return vacia;
 }
-
+/*
 char** stepS(char **matriz, int fil, int col){
     char** vacia=generar_vacia(fil,col);
     for (int i=0 ;  i<fil ; i++){
@@ -174,7 +178,7 @@ int main(int argc , char *argv []){
     }
     std::cout << matriz << std::endl;
     mostrar(matriz,fil,col);
-    /*
+    
     if(show){
 		mostrar(matriz,fil,col);
 	}
@@ -196,7 +200,7 @@ int main(int argc , char *argv []){
     	
     }
     std::cout << "elapsed:" << time << "ms\n";
-    std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";*/
+    std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
     
 
     return (EXIT_SUCCESS);
