@@ -90,11 +90,11 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		}
             //std::cout<< i << " " << j << " " << buscar_matriz(matriz,j,i,fil,col) << std::endl;
     		if(buscar_matriz(matriz,j,i,fil,col)==0 && cont==3){
-    			matriz=set_matriz(matriz,j,i,fil,col,1);
+    			matriz[(i*col)+j]=1;
     		}else if(buscar_matriz(matriz,j,i,fil,col)==1 && (cont==2 || cont==3)){
-    			matriz=set_matriz(matriz,j,i,fil,col,1);
+    			matriz[(i*col)+j]=1;
     		}else{
-    			matriz=set_matriz(matriz,j,i,fil,col,0);
+    			matriz[(i*col)+j]=0;
     		}
 
     	}
