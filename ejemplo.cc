@@ -16,7 +16,7 @@
 
 int main()
 {
-    boost::dynamic_bitset<> x(5); // all 0's by default
+    boost::dynamic_bitset<> x(20); // all 0's by default
     x[0] = 1;
     x[1] = 1;
     x[4] = 1;
