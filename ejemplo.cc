@@ -246,7 +246,6 @@ int** stepP_int(int **matriz, int fil, int col, int32_t nt){
 //Comienza seccion de ejecucion del juego de la vida con procesamiento secuencial
 boost::dynamic_bitset<> stepS_bit(boost::dynamic_bitset<> matriz, int fil, int col){
     boost::dynamic_bitset<> vacia=generar_matriz_bit(fil,col);
-    #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             int cont=0;
