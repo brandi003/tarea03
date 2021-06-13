@@ -4,26 +4,15 @@
 #include <random>
 #include <iomanip>
 
+#include <iostream>
+#include <random>
+#include <iomanip>
 #include <stdio.h>
 #include <cstdlib>
 
-#include <boost/dynamic_bitset.hpp>
 
-int main()
-{
-    boost::dynamic_bitset<> x(5); // all 0's by default
-    x[0] = 1;
-    x[1] = 1;
-    x[4] = 1;
-    for (boost::dynamic_bitset<>::size_type i = 0; i < x.size(); ++i)
-        std::cout << x[i];
-    std::cout << "\n";
-    std::cout << x << "\n";
 
-    return 0;
-}
 
-/*
 bool* get_vecinos(int x, int y, int fil, int col){
 	bool* vecinosB=new bool[8];
 	int vecinos[8][2]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
@@ -81,7 +70,7 @@ char** stepP(char **matriz, int fil, int col, int32_t nt){
     		#pragma omp critical
     		{
     			std::cout << "(" << i << "," << j << ")" << std::endl;
-    		}*//*
+    		}*/
 
     		if(matriz[i][j]=='#' && cont==3){
 
@@ -200,4 +189,52 @@ int main(int argc , char *argv []){
 }
 
 
-*/
+
+/*
+int main(int argc , char *argv []) {
+	std::random_device dev;  
+	
+	//Por omisión, se paraleliza con la capacidad del HW
+	int32_t nt    = omp_get_max_threads();
+	int32_t aSize = 20;
+	std::cout << nt << std::endl;
+	///////////////////////////////////////
+	//  Read command-line parameters
+	std::string mystr;
+	for (size_t i=0; i < argc; i++) {
+		mystr=argv[i];
+		if (mystr == "-nt") {
+			nt = atoi(argv[i+1]);
+		}
+		if (mystr == "-asize") {
+			aSize = atoi(argv[i+1]);
+		}
+	}
+	
+	auto datos = new uint32_t[aSize];
+
+	std::mt19937 gen(dev()); 
+	std::uniform_int_distribution<> unif(0, 10000);
+
+	//LLenar vector con algo...
+	Timer t1;
+	
+	t1.start();
+	#pragma omp parallel for num_threads(nt)
+	for(size_t i = 0; i < aSize; ++i){	
+		datos[i] = unif(gen);
+		
+		int32_t thID = omp_get_thread_num();
+		#pragma omp critical
+		{
+			std::cout << "thID:" << thID << ", dato[" << i << "]="<< datos[i] << std::endl;
+		}
+	}
+	t1.stop();
+	
+	std::cout << "elapsed:" <<  t1.elapsed<std::chrono::milliseconds>() << "ms\n";
+	
+	
+	
+	return(EXIT_SUCCESS);
+}*/
