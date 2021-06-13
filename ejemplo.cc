@@ -90,11 +90,11 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		}
 
     		if(buscar_matriz(matriz,j,i,fil,col)=='#' && cont==3){
-    			buscar_matriz(matriz,j,i,fil,col,1);
+    			set_matriz(matriz,j,i,fil,col,1);
     		}else if(buscar_matriz(matriz,j,i,fil,col)=='*' && (cont==2 || cont==3)){
-    			buscar_matriz(matriz,j,i,fil,col,1);
+    			set_matriz(matriz,j,i,fil,col,1);
     		}else{
-    			buscar_matriz(matriz,j,i,fil,col,0);
+    			set_matriz(matriz,j,i,fil,col,0);
     		}
 
     	}
@@ -190,7 +190,7 @@ int main(int argc , char *argv []){
     	if(seq){
     		matriz=stepS(matriz,fil,col);
     	}else{
-    		matriz=stepP(matriz,fil,col,nt);
+    		//matriz=stepP(matriz,fil,col,nt);
     	}
     	t1.stop();
     	time=time+t1.elapsed<std::chrono::milliseconds>();
