@@ -15,7 +15,7 @@
 #include <boost/dynamic_bitset.hpp>
 
 int buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col){
-    return matriz[(y*fil*col)+x];
+    return matriz[(y*col)+x];
 }
 
 boost::dynamic_bitset<> generar_matriz(int fil, int col){
@@ -60,7 +60,7 @@ void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
     int cont=0;
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
-            std::cout << buscar_matriz(matriz,i,j,fil,col);
+            std::cout << buscar_matriz(matriz,j,i,fil,col);
             cont++;
         }
         std::cout<<std::endl;
@@ -164,7 +164,6 @@ int main(int argc , char *argv []){
 
     boost::dynamic_bitset<> matriz = generar_matriz(fil,col);
     int cont=0;
-    std::cout << matriz << std::endl;
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
@@ -173,6 +172,7 @@ int main(int argc , char *argv []){
             cont++;
         }
     }
+    std::cout << matriz << std::endl;
     mostrar(matriz,fil,col);
     /*
     if(show){
