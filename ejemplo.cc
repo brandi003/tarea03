@@ -70,6 +70,7 @@ void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
 
 boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, int32_t nt){
     boost::dynamic_bitset<> vacia=generar_matriz(fil,col);
+    #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
     	for (int j=0 ; j<col ; j++){
     		int cont=0;
