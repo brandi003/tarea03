@@ -18,11 +18,6 @@ int buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col
     return matriz[(y*col)+x];
 }
 
-boost::dynamic_bitset<> set_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col, int val){
-    matriz[(y*col)+x]=val;
-    return matriz;
-}
-
 boost::dynamic_bitset<> generar_matriz(int fil, int col){
     boost::dynamic_bitset<> x(fil*col);
     return x;
@@ -89,11 +84,11 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		}
             //std::cout<< i << " " << j << " " << buscar_matriz(matriz,j,i,fil,col) << std::endl;
     		if(buscar_matriz(matriz,j,i,fil,col)==0 && cont==3){
-    			matriz[(i*col)+j]=1;
+    			vacia[(i*col)+j]=1;
     		}else if(buscar_matriz(matriz,j,i,fil,col)==1 && (cont==2 || cont==3)){
-    			matriz[(i*col)+j]=1;
+    			vacia[(i*col)+j]=1;
     		}else{
-    			matriz[(i*col)+j]=0;
+    			vacia[(i*col)+j]=0;
     		}
 
     	}
