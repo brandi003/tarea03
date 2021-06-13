@@ -17,46 +17,46 @@
 void help(){
     std::cout << "---------Comando help ejecutado, se ignoraras los demas parametros---------"  << std::endl;
     std::cout << "Descripcion: Este programa simula el juego de la vida de conway que se pidio" << std::endl;
-    std::cout << " para la tarea 03, el programa se puede ejecutar con distintos parametros"    << std::endl;
-    std::cout << " que variara en la ejecucion de el mismo, a continuacion se mostraran los"    << std::endl;
-    std::cout << " parametros permitidos y los valores que pueden tomar."                       << std::endl;
+    std::cout << "para la tarea 03, el programa se puede ejecutar con distintos parametros"     << std::endl;
+    std::cout << "que variara en la ejecucion de el mismo, a continuacion se mostraran los"     << std::endl;
+    std::cout << "parametros permitidos y los valores que pueden tomar."                        << std::endl;
     std::cout << std::endl;
     std::cout << "-ncol  ---> sirve para especificar la cantidad de columnas con las que se"    << std::endl;
-    std::cout << " simulara el juego de la vida, este tiene que ir acompañado con un valor "    << std::endl;
-    std::cout << "numerico entero mayor a 0 (de esto depende directamente cuanto se demorara "  << std::endl;
+    std::cout << "simulara el juego de la vida, este tiene que ir acompañado con un valor"      << std::endl;
+    std::cout << "numerico entero mayor a 0 (de esto depende directamente cuanto se demorara"   << std::endl;
     std::cout << "en ejecutar el programa)"                                                     << std::endl;
     std::cout << std::endl;
     std::cout << "-nfil  ---> sirve para especificar la cantidad de filas con las que se"       << std::endl;
-    std::cout << " simulara el juego de la vida, este tiene que ir acompañado con un valor "    << std::endl;
-    std::cout << "numerico entero mayor a 0 (de esto depende directamente cuanto se demorara "  << std::endl;
+    std::cout << "simulara el juego de la vida, este tiene que ir acompañado con un valor"      << std::endl;
+    std::cout << "numerico entero mayor a 0 (de esto depende directamente cuanto se demorara"   << std::endl;
     std::cout << "en ejecutar el programa)"                                                     << std::endl;
     std::cout << std::endl;
     std::cout << "-nt  ---> sirve para especificar la cantidad de procesos con las que se"      << std::endl;
-    std::cout << " simulara el juego de la vida, este tiene que ir acompañado con un valor "    << std::endl;
-    std::cout << "numerico entero mayor a 0 (esto afectara al tiempo que tardara ) "            << std::endl;
+    std::cout << "simulara el juego de la vida, este tiene que ir acompañado con un valor"      << std::endl;
+    std::cout << "numerico entero mayor a 0 (esto afectara al tiempo que tardara )"             << std::endl;
     std::cout << "en ejecutar el programa)"                                                     << std::endl;
     std::cout << std::endl;
     std::cout << "-nt  ---> sirve para especificar la cantidad de procesos con las que se"      << std::endl;
-    std::cout << " simulara el juego de la vida, este tiene que ir acompañado con un valor "    << std::endl;
-    std::cout << "numerico entero mayor a 0 (esto afectara al tiempo que tardara "              << std::endl;
+    std::cout << "simulara el juego de la vida, este tiene que ir acompañado con un valor"      << std::endl;
+    std::cout << "numerico entero mayor a 0 (esto afectara al tiempo que tardara"               << std::endl;
     std::cout << "en ejecutar el programa) no es compatible con el parametro -seq"              << std::endl;
     std::cout << std::endl;
-    std::cout << "-plive  ---> sirve para especificar la probabilidad de que una celula este "  << std::endl;
+    std::cout << "-plive  ---> sirve para especificar la probabilidad de que una celula este"   << std::endl;
     std::cout << "viva en la generacion inicial del juego de la vida, tiene que tomar valores"  << std::endl;
-    std::cout << " entre 0 y 1, por ejemplo 0.5"                                                << std::endl;
+    std::cout << "entre 0 y 1, por ejemplo 0.5"                                                 << std::endl;
     std::cout << std::endl;
     std::cout << "-seq  ---> sirve para ejecutar la version secuencial del programa"            << std::endl;
     std::cout << std::endl;
-    std::cout << "-show  ---> mostrar las generaciones a medida que se simula el juego de la "  << std::endl;
+    std::cout << "-show  ---> mostrar las generaciones a medida que se simula el juego de la"   << std::endl;
     std::cout << "vida, no es recomendable si el tablero es mayor a 30x30"                      << std::endl;
     std::cout << std::endl;
-    std::cout << "-iter  ---> sirve para especificar cuantas generaciones se quieren generar "  << std::endl;
+    std::cout << "-iter  ---> sirve para especificar cuantas generaciones se quieren generar"   << std::endl;
     std::cout << "tiene que ir acompañado por un numero entero mayor a 0"                       << std::endl;
     std::cout << std::endl;
-    std::cout << "-bit  ---> ejecuta el programa usando bits como tipo de datos, no es "        << std::endl;
+    std::cout << "-bit  ---> ejecuta el programa usando bits como tipo de datos, no es"         << std::endl;
     std::cout << "compatible con los parametros -int (por defecto se usan chars"                << std::endl;
     std::cout << std::endl;
-    std::cout << "-int  ---> ejecuta el programa usando enteros como tipo de datos, no es "     << std::endl;
+    std::cout << "-int  ---> ejecuta el programa usando enteros como tipo de datos, no es"      << std::endl;
     std::cout << "compatible con los parametros -bit (por defecto se usan chars"                << std::endl;
     std::cout << std::endl;
 }
@@ -194,6 +194,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
                     }
                 }
             }
+            std::cout << "aloo" << std::endl;
 
             if(matriz[i][j]=='#' && cont==3){
 
