@@ -294,6 +294,7 @@ char** stepS_char(char **matriz, int fil, int col){
             }else{
                 vacia[i][j]='#';
             }
+            std::cout << "paso" << std::endl;
             
 
         }
