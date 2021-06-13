@@ -343,7 +343,7 @@ int main(int argc , char *argv []){
     bool d_bit=false;
     bool flag=false;
     std::string mystr;
-    int cont_datos=0
+    int cont_datos=0;
     for (int i=0; i < argc; i++) {
         mystr=argv[i];
         if (mystr == "-ncol") {
