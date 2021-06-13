@@ -167,7 +167,7 @@ int main(int argc , char *argv []){
     std::cout << matriz << std::endl;
     for (int i=0 ; i<fil ; i++){
         for (int j=0 ; j<col ; j++){
-            float x=generar_numero()
+            float x=generar_numero();
             std::cout << x << std::endl;
             if(prob>=x){
                 std::cout << "alo" << std::endl;
