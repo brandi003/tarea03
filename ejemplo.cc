@@ -286,7 +286,7 @@ char** stepS_char(char **matriz, int fil, int col){
                     }
                 }
             }
-            std::cout << "aloo" << std::endl;
+            std::cout << "(" << i << "," << j << ")" << std::endl;
             if(matriz[i][j]=='#' && cont==3){
                 vacia[i][j]='*';
             }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
