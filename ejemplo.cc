@@ -287,7 +287,7 @@ char** stepS_char(char **matriz, int fil, int col){
                     }
                 }
             }
-            
+            std::cout << "paso" << std::endl;
             if(matriz[i][j]=='#' && cont==3){
                 vacia[i][j]='*';
             }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
@@ -295,7 +295,6 @@ char** stepS_char(char **matriz, int fil, int col){
             }else{
                 vacia[i][j]='#';
             }
-            std::cout << "paso" << std::endl;
             
 
         }
