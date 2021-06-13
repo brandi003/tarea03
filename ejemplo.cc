@@ -169,15 +169,16 @@ int main(int argc , char *argv []){
             cont++;
         }
     }
+
+    boost::dynamic_bitset<> x(5);
+    x[0]=1;
+    if(x[0]==1){
+        std::cout << "alooo" << std::endl;
+    }
+
     if(show){
 		mostrar(matriz,fil,col);
 	}
-    mostrar(matriz,fil,col);
-    for (int i=0 ; i<fil ; i++){
-        for (int j=0 ; j<col ; j++){
-            std::cout << matriz[(i*col)+j];
-        }
-    }
     std::cout << std::endl;
 	Timer t1;
 	double time=0;
