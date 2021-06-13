@@ -60,7 +60,7 @@ void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
     int cont=0;
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
-            std::cout << buscar_matriz(matriz,j,i,fil,col);
+            std::cout << buscar_matriz(matriz,i,j,fil,col);
             cont++;
         }
         std::cout<<std::endl;
