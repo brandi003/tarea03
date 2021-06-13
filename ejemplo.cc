@@ -276,6 +276,7 @@ char** stepS_char(char **matriz, int fil, int col){
     char** vacia=generar_vacia_char(fil,col);
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
+            std::cout << "(" << i << "," << j << ")" << std::endl;
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,fil,col);
@@ -286,7 +287,7 @@ char** stepS_char(char **matriz, int fil, int col){
                     }
                 }
             }
-            std::cout << "(" << i << "," << j << ")" << std::endl;
+            
             if(matriz[i][j]=='#' && cont==3){
                 vacia[i][j]='*';
             }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
