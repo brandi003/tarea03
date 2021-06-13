@@ -75,20 +75,13 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		int cont=0;
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
     		bool* vecinosB=get_vecinos(i,j,fil,col);
-            mostrar(matriz,fil,col);
-            std::cout << "vecinos de (" << i << "," << j <<") son: " << std::endl;
-            std::cout << "valor=" << matriz[(i*col)+j] << std::endl;
     		for (int k=0; k<8 ; k++){
     			if(vecinosB[k]){
-                    std::cout << "(" << vecinos[k][0] << "," << vecinos[k][1] << ")" << std::endl;
-                    std::cout << matriz[(vecinos[k][0]*col)+vecinos[k][1]] << std::endl;
     				if(matriz[(vecinos[k][0]*col)+vecinos[k][1]]==1){
     					cont=cont+1;
     				}
     			}
     		}
-            std::cout << "-----" << std::endl;
-            //std::cout<< i << " " << j << " " << buscar_matriz(matriz,j,i,fil,col) << std::endl;
     		if(matriz[(i*col)+j]==0 && cont==3){
     			vacia[(i*col)+j]=1;
     		}else if(matriz[(i*col)+j]==1 && (cont==2 || cont==3)){
@@ -180,11 +173,12 @@ int main(int argc , char *argv []){
 		mostrar(matriz,fil,col);
 	}
     mostrar(matriz,fil,col);
-    std::cout<< matriz[(0*col)+0] <<std::endl;
-    std::cout<< matriz[(0*col)+1] <<std::endl;
-    std::cout<< matriz[(0*col)+2] <<std::endl;
-    std::cout<< matriz[(0*col)+3] <<std::endl;
-    std::cout<< matriz[(0*col)+4] <<std::endl;
+    for (int i=0 ; i<fil ; i++){
+        for (int j=0 ; j<col ; j++){
+            std::cout << matriz[(i*col)+j];
+        }
+    }
+    std::cout << std::endl;
 	Timer t1;
 	double time=0;
     for (int i=0 ; i<iter ; i++){
