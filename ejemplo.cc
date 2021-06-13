@@ -109,7 +109,7 @@ int** stepS(int **matriz, int fil, int col){
     return vacia;
 }
 
-int main(int argc , int *argv []){
+int main(int argc , char *argv []){
     int col=5;
     int fil=5;
     float prob=0.8;
