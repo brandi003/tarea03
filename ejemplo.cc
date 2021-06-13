@@ -82,6 +82,11 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     				}
     			}
     		}
+
+            if(i==1 && j==1){
+                std::cout << cont << std::endl;
+            }
+
     		if(matriz[(i*col)+j]==0 && cont==3){
     			vacia[(i*col)+j]=1;
     		}else if(matriz[(i*col)+j]==1 && (cont==2 || cont==3)){
@@ -168,12 +173,6 @@ int main(int argc , char *argv []){
             }
             cont++;
         }
-    }
-
-    boost::dynamic_bitset<> x(5);
-    x[0]=1;
-    if(x[0]==1){
-        std::cout << "alooo" << std::endl;
     }
 
     if(show){
