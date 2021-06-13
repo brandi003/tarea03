@@ -14,6 +14,14 @@
 #include <iostream>
 #include <boost/dynamic_bitset.hpp>
 
+boost::dynamic_bitset<> buscar_matriz(boost::dynamic_bitset<> matriz, int x, int y, int fil, int col){
+    return matriz[(y*fil*col)+x];
+}
+
+boost::dynamic_bitset<> generar_matriz(int fil, int col){
+    return boost::dynamic_bitset<> x(fil*col);
+}
+/*
 int main()
 {
     boost::dynamic_bitset<> x(64); // all 0's by default
@@ -28,9 +36,8 @@ int main()
     std::cout << x << "\n";
 
     return 0;
-}
+}*/
 
-/*
 bool* get_vecinos(int x, int y, int fil, int col){
 	bool* vecinosB=new bool[8];
 	int vecinos[8][2]={{x-1,y-1},{x,y-1},{x+1,y-1},{x-1,y},{x+1,y},{x-1,y+1},{x,y+1},{x+1,y+1}};
@@ -48,25 +55,16 @@ float generar_numero(){
     return (float)(rand())/RAND_MAX;
 }
 
-void mostrar(char **matriz, int fil, int col){
+void mostrar(boost::dynamic_bitset<> matriz, int fil, int col){
+    cont=cont+1
     for(int i=0;i< fil;i++){
         for(int j=0;j< col;j++){
-            std::cout<<matriz[i][j];
+            std::cout << buscar_matriz(matriz,j,i,fil,col);
+            cont++;
         }
         std::cout<<std::endl;
     }
     std::cout << std::endl;
-}
-
-char** generar_vacia(int fil, int col){
-	char** matriz = new char*[fil];
-    for (int i=0 ; i<fil ; i++){
-    	matriz[i] = new char[col];
-        for (int j=0 ; j<col ; j++){
-            matriz[i][j]='#';
-        }
-    }
-    return matriz;
 }
 
 char** stepP(char **matriz, int fil, int col, int32_t nt){
@@ -163,20 +161,22 @@ int main(int argc , char *argv []){
 	}
 
 
-    char** matriz = new char*[fil];
+    boost::dynamic_bitset<> matriz = buscar_matriz(fil,col);
+    int cont=0;
     for (int i=0 ; i<fil ; i++){
-    	matriz[i] = new char[col];
         for (int j=0 ; j<col ; j++){
             if(prob>=generar_numero()){
-                matriz[i][j]='*';
-            }else{
-               	matriz[i][j]='#';
+                matriz[cont]=1;
             }
+            cont++;
         }
     }
+    mostrar(matriz,fil,col);
+    /*
     if(show){
 		mostrar(matriz,fil,col);
 	}
+    
 	Timer t1;
 	double time=0;
     for (int i=0 ; i<iter ; i++){
@@ -194,9 +194,8 @@ int main(int argc , char *argv []){
     	
     }
     std::cout << "elapsed:" << time << "ms\n";
-    std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
+    std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";*/
     
 
     return (EXIT_SUCCESS);
 }
-*/
