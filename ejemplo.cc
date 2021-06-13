@@ -75,22 +75,22 @@ boost::dynamic_bitset<> stepP(boost::dynamic_bitset<> matriz, int fil, int col, 
     		int cont=0;
     		int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
     		bool* vecinosB=get_vecinos(i,j,fil,col);
+            std::cout << "vecinos de (" << i << "," << j <<") son: ";
     		for (int k=0; k<8 ; k++){
     			if(vecinosB[k]){
+                    std::cout << "(" << vecinos[k][0] << "," << vecinos[k][1] << ")--";
     				if(matriz[(vecinos[k][1]*col)+vecinos[k][0]]==1){
     					cont=cont+1;
     				}
     			}
     		}
+            std::cout << std::endl;
             //std::cout<< i << " " << j << " " << buscar_matriz(matriz,j,i,fil,col) << std::endl;
     		if(matriz[(i*col)+j]==0 && cont==3){
-                std::cout << "en la posicion" << i << "," << j << "se cambio el valor de " << matriz[(i*col)+j] << "a 1" << std::endl;
     			vacia[(i*col)+j]=1;
     		}else if(matriz[(i*col)+j]==1 && (cont==2 || cont==3)){
-                std::cout << "en la posicion" << i << "," << j << "se cambio el valor de " << matriz[(i*col)+j] << "a 1" << std::endl;
     			vacia[(i*col)+j]=1;
     		}else{
-                std::cout << "en la posicion" << i << "," << j << "se cambio el valor de " << matriz[(i*col)+j] << "a 0" << std::endl;
     			vacia[(i*col)+j]=0;
     		}
 
