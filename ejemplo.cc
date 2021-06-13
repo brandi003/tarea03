@@ -282,12 +282,12 @@ char** stepS_char(char **matriz, int fil, int col){
             bool* vecinosB=get_vecinos(i,j,fil,col);
             for (int k=0; k<8 ; k++){
                 if(vecinosB[k]){
+                    std::cout << "(" << vecinos[k][0] << "," << vecinos[k][1] << ")" << std::endl;
                     if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
                         cont=cont+1;
                     }
                 }
             }
-            std::cout << "paso" << std::endl;
             if(matriz[i][j]=='#' && cont==3){
                 vacia[i][j]='*';
             }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
