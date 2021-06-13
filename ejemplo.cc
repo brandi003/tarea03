@@ -20,7 +20,7 @@ int main()
     x[0] = 1;
     x[1] = 1;
     x[4] = 1;
-    std::cout << sizeof('x') << std::endl; 
+    std::cout << sizeof(x) << std::endl; 
     std::cout << sizeof(x[1]) << std::endl;
     for (boost::dynamic_bitset<>::size_type i = 0; i < x.size(); ++i)
         std::cout << x[i];
