@@ -173,7 +173,7 @@ int main(int argc , char *argv []){
     if(show){
 		mostrar(matriz,fil,col);
 	}
-    
+    mostrar(matriz,fil,col);
 	Timer t1;
 	double time=0;
     for (int i=0 ; i<iter ; i++){
