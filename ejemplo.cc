@@ -237,7 +237,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
 }
 
 int** stepP_int(int **matriz, int fil, int col, int32_t nt){
-    int** vacia=generar_vacia_int(fil,col);
+    int** vacia=matriz;
     #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
@@ -540,7 +540,7 @@ int main(int argc , char *argv []){
             if(seq){
                 matriz=stepS_int(matriz,fil,col);
             }else{
-                //matriz=stepP_int(matriz,fil,col,nt);
+                matriz=stepP_int(matriz,fil,col,nt);
             }
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
