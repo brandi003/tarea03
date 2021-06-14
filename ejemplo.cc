@@ -4,14 +4,9 @@
 #include <random>
 #include <iomanip>
 
-#include <iostream>
-#include <random>
-#include <iomanip>
 #include <stdio.h>
 #include <cstdlib>
 
-
-#include <iostream>
 #include <boost/dynamic_bitset.hpp>
 
 void help(){
@@ -157,14 +152,30 @@ boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int c
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,col,fil);
-            for (int k=0; k<8 ; k++){
-                if(vecinosB[k]){
-                    if(matriz[(vecinos[k][0]*col)+vecinos[k][1]]==1){
-                        cont=cont+1;
-                    }
-                }
+            if(vecinosB[0] && matriz[(vecinos[0][0]*col)+vecinos[0][1]]==1){
+                cont++;
             }
-
+            if(vecinosB[1] && matriz[(vecinos[1][0]*col)+vecinos[1][1]]==1){
+                cont++;
+            }
+            if(vecinosB[2] && matriz[(vecinos[2][0]*col)+vecinos[2][1]]==1){
+                cont++;
+            }
+            if(vecinosB[3] && matriz[(vecinos[3][0]*col)+vecinos[3][1]]==1){
+                cont++;
+            }
+            if(vecinosB[4] && matriz[(vecinos[4][0]*col)+vecinos[4][1]]==1){
+                cont++;
+            }
+            if(vecinosB[5] && matriz[(vecinos[5][0]*col)+vecinos[5][1]]==1){
+                cont++;
+            }
+            if(vecinosB[6] && matriz[(vecinos[6][0]*col)+vecinos[6][1]]==1){
+                cont++;
+            }
+            if(vecinosB[7] && matriz[(vecinos[7][0]*col)+vecinos[7][1]]==1){
+                cont++;
+            }
 
             if(matriz[(i*col)+j]==0 && cont==3){
                 vacia[(i*col)+j]=1;
@@ -187,18 +198,32 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,col,fil);
-
-            for (int k=0; k<8 ; k++){
-                if(vecinosB[k]){
-                    if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
-                        cont=cont+1;
-                    }
-                }
+            if(vecinosB[0] && matriz[vecinos[0][0]][vecinos[0][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[1] && matriz[vecinos[1][0]][vecinos[1][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[2] && matriz[vecinos[2][0]][vecinos[2][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[3] && matriz[vecinos[3][0]][vecinos[3][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[4] && matriz[vecinos[4][0]][vecinos[4][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[5] && matriz[vecinos[5][0]][vecinos[5][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[6] && matriz[vecinos[6][0]][vecinos[6][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[7] && matriz[vecinos[7][0]][vecinos[7][1]]=='*'){
+                cont++;
             }
 
-
             if(matriz[i][j]=='#' && cont==3){
-
                 vacia[i][j]='*';
             }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
                 vacia[i][j]='*';
@@ -219,16 +244,32 @@ int** stepP_int(int **matriz, int fil, int col, int32_t nt){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,col,fil);
-            for (int k=0; k<8 ; k++){
-                if(vecinosB[k]){
-                    if(matriz[vecinos[k][0]][vecinos[k][1]]==1){
-                        cont=cont+1;
-                    }
-                }
+            if(vecinosB[0] && matriz[vecinos[0][0]][vecinos[0][1]]==1){
+                cont++;
+            }
+            if(vecinosB[1] && matriz[vecinos[1][0]][vecinos[1][1]]==1){
+                cont++;
+            }
+            if(vecinosB[2] && matriz[vecinos[2][0]][vecinos[2][1]]==1){
+                cont++;
+            }
+            if(vecinosB[3] && matriz[vecinos[3][0]][vecinos[3][1]]==1){
+                cont++;
+            }
+            if(vecinosB[4] && matriz[vecinos[4][0]][vecinos[4][1]]==1){
+                cont++;
+            }
+            if(vecinosB[5] && matriz[vecinos[5][0]][vecinos[5][1]]==1){
+                cont++;
+            }
+            if(vecinosB[6] && matriz[vecinos[6][0]][vecinos[6][1]]==1){
+                cont++;
+            }
+            if(vecinosB[7] && matriz[vecinos[7][0]][vecinos[7][1]]==1){
+                cont++;
             }
 
             if(matriz[i][j]==0 && cont==3){
-
                 vacia[i][j]=1;
             }else if(matriz[i][j]==1 && (cont==2 || cont==3)){
                 vacia[i][j]=1;
@@ -250,12 +291,29 @@ boost::dynamic_bitset<> stepS_bit(boost::dynamic_bitset<> matriz, int fil, int c
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,col,fil);
-            for (int k=0; k<8 ; k++){
-                if(vecinosB[k]){
-                    if(matriz[(vecinos[k][0]*col)+vecinos[k][1]]==1){
-                        cont=cont+1;
-                    }
-                }
+            if(vecinosB[0] && matriz[(vecinos[0][0]*col)+vecinos[0][1]]==1){
+                cont++;
+            }
+            if(vecinosB[1] && matriz[(vecinos[1][0]*col)+vecinos[1][1]]==1){
+                cont++;
+            }
+            if(vecinosB[2] && matriz[(vecinos[2][0]*col)+vecinos[2][1]]==1){
+                cont++;
+            }
+            if(vecinosB[3] && matriz[(vecinos[3][0]*col)+vecinos[3][1]]==1){
+                cont++;
+            }
+            if(vecinosB[4] && matriz[(vecinos[4][0]*col)+vecinos[4][1]]==1){
+                cont++;
+            }
+            if(vecinosB[5] && matriz[(vecinos[5][0]*col)+vecinos[5][1]]==1){
+                cont++;
+            }
+            if(vecinosB[6] && matriz[(vecinos[6][0]*col)+vecinos[6][1]]==1){
+                cont++;
+            }
+            if(vecinosB[7] && matriz[(vecinos[7][0]*col)+vecinos[7][1]]==1){
+                cont++;
             }
 
 
@@ -279,12 +337,29 @@ char** stepS_char(char **matriz, int fil, int col){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,col,fil);
-            for (int k=0; k<8 ; k++){
-                if(vecinosB[k]){
-                    if(matriz[vecinos[k][0]][vecinos[k][1]]=='*'){
-                        cont=cont+1;
-                    }
-                }
+            if(vecinosB[0] && matriz[vecinos[0][0]][vecinos[0][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[1] && matriz[vecinos[1][0]][vecinos[1][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[2] && matriz[vecinos[2][0]][vecinos[2][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[3] && matriz[vecinos[3][0]][vecinos[3][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[4] && matriz[vecinos[4][0]][vecinos[4][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[5] && matriz[vecinos[5][0]][vecinos[5][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[6] && matriz[vecinos[6][0]][vecinos[6][1]]=='*'){
+                cont++;
+            }
+            if(vecinosB[7] && matriz[vecinos[7][0]][vecinos[7][1]]=='*'){
+                cont++;
             }
             if(matriz[i][j]=='#' && cont==3){
                 vacia[i][j]='*';
@@ -307,12 +382,29 @@ int** stepS_int(int **matriz, int fil, int col){
             int cont=0;
             int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
             bool* vecinosB=get_vecinos(i,j,col,fil);
-            for (int k=0; k<8 ; k++){
-                if(vecinosB[k]){
-                    if(matriz[vecinos[k][0]][vecinos[k][1]]==1){
-                        cont=cont+1;
-                    }
-                }
+            if(vecinosB[0] && matriz[vecinos[0][0]][vecinos[0][1]]==1){
+                cont++;
+            }
+            if(vecinosB[1] && matriz[vecinos[1][0]][vecinos[1][1]]==1){
+                cont++;
+            }
+            if(vecinosB[2] && matriz[vecinos[2][0]][vecinos[2][1]]==1){
+                cont++;
+            }
+            if(vecinosB[3] && matriz[vecinos[3][0]][vecinos[3][1]]==1){
+                cont++;
+            }
+            if(vecinosB[4] && matriz[vecinos[4][0]][vecinos[4][1]]==1){
+                cont++;
+            }
+            if(vecinosB[5] && matriz[vecinos[5][0]][vecinos[5][1]]==1){
+                cont++;
+            }
+            if(vecinosB[6] && matriz[vecinos[6][0]][vecinos[6][1]]==1){
+                cont++;
+            }
+            if(vecinosB[7] && matriz[vecinos[7][0]][vecinos[7][1]]==1){
+                cont++;
             }
             if(matriz[i][j]==0 && cont==3){
                 vacia[i][j]=1;
@@ -391,6 +483,7 @@ int main(int argc , char *argv []){
 
 
     if(d_bit){
+        std::cout << "ejecutando la version del juego de la vida usando bits" << std::endl;
         boost::dynamic_bitset<> matriz = generar_matriz_bit(fil,col);
         int cont=0;
         for (int i=0 ; i<fil ; i++){
@@ -425,6 +518,7 @@ int main(int argc , char *argv []){
         std::cout << "elapsed:" << time << "ms\n";
         std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
     }else if(d_int){
+        std::cout << "ejecutando la version del juego de la vida usando enteros" << std::endl;
         int** matriz = new int*[fil];
         for (int i=0 ; i<fil ; i++){
             matriz[i] = new int[col];
@@ -458,6 +552,7 @@ int main(int argc , char *argv []){
         std::cout << "elapsed:" << time << "ms\n";
         std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
     }else{
+        std::cout << "ejecutando la version del juego de la vida usando char" << std::endl;
         char** matriz = new char*[fil];
         for (int i=0 ; i<fil ; i++){
             matriz[i] = new char[col];
