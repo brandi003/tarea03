@@ -233,7 +233,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
 
         }
     }
-    delete matriz;
+    matriz = NULL;
     return vacia;
 }
 
