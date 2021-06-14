@@ -535,11 +535,14 @@ int main(int argc , char *argv []){
         double time=0;
         for (int i=0 ; i<iter ; i++){
             t1.start();
+            int** aux=matriz;
+            matriz=NULL;
             if(seq){
-                matriz=stepS_int(matriz,fil,col,generar_vacia_int(fil,col));
+                matriz=stepS_int(aux,fil,col,generar_vacia_int(fil,col));
             }else{
-                matriz=stepP_int(matriz,fil,col,nt,generar_vacia_int(fil,col));
+                matriz=stepP_int(aux,fil,col,nt,generar_vacia_int(fil,col));
             }
+            aux=NULL;
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
             if(show){
