@@ -233,7 +233,7 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
 
         }
     }
-    matriz = NULL;
+    delete matriz;
     return vacia;
 }
 
@@ -571,12 +571,17 @@ int main(int argc , char *argv []){
         Timer t1;
         double time=0;
         for (int i=0 ; i<iter ; i++){
+            char** aux;
             t1.start();
             if(seq){
                 matriz=stepS_char(matriz,fil,col);
             }else{
                 matriz=stepP_char(matriz,fil,col,nt);
             }
+            aux=matriz;
+            delete matriz;
+            matriz=aux;
+            delete aux;
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
             if(show){
