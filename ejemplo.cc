@@ -540,7 +540,7 @@ int main(int argc , char *argv []){
             if(seq){
                 matriz=stepS_int(matriz,fil,col);
             }else{
-                matriz=stepP_int(matriz,fil,col,nt);
+                //matriz=stepP_int(matriz,fil,col,nt);
             }
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
@@ -574,7 +574,7 @@ int main(int argc , char *argv []){
             if(seq){
                 matriz=stepS_char(matriz,fil,col);
             }else{
-                //matriz=stepP_char(matriz,fil,col,nt);
+                matriz=stepP_char(matriz,fil,col,nt);
             }
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
