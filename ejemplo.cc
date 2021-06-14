@@ -540,6 +540,7 @@ int main(int argc , char *argv []){
             if(seq){
                 matriz=stepS_int(aux,fil,col,generar_vacia_int(fil,col));
             }else{
+                std::cout << sizeof(matriz) << std::endl;
                 matriz=stepP_int(aux,fil,col,nt,generar_vacia_int(fil,col));
             }
             aux=NULL;
