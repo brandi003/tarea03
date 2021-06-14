@@ -233,11 +233,12 @@ char** stepP_char(char **matriz, int fil, int col, int32_t nt){
 
         }
     }
+    delete matriz;
     return vacia;
 }
 
 int** stepP_int(int **matriz, int fil, int col, int32_t nt){
-    int** vacia=matriz;
+    int** vacia=generar_vacia_int(fil,col);
     #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
