@@ -536,9 +536,9 @@ int main(int argc , char *argv []){
         for (int i=0 ; i<iter ; i++){
             t1.start();
             if(seq){
-                matriz=stepS_int(matriz,fil,col,generar_vacia_int(fil,col););
+                matriz=stepS_int(matriz,fil,col,generar_vacia_int(fil,col));
             }else{
-                matriz=stepP_int(matriz,fil,col,nt,generar_vacia_int(fil,col););
+                matriz=stepP_int(matriz,fil,col,nt,generar_vacia_int(fil,col));
             }
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
