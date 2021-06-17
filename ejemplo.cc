@@ -116,7 +116,7 @@ void mostrar_int(int **matriz, int fil, int col){
 
 //Comienza seccion de ejecucion del juego de la vida con procesamiento paralelo
 boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int col, int32_t nt){
-    vacia_bit=generar_matriz_bit(fil,col);
+    boost::dynamic_bitset<> vacia=generar_matriz_bit(fil,col);
     #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
@@ -149,16 +149,16 @@ boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int c
             }
 
             if(matriz[(i*col)+j]==0 && cont==3){
-                vacia_bit[(i*col)+j]=1;
+                vacia[(i*col)+j]=1;
             }else if(matriz[(i*col)+j]==1 && (cont==2 || cont==3)){
-                vacia_bit[(i*col)+j]=1;
+                vacia[(i*col)+j]=1;
             }else{
-                vacia_bit[(i*col)+j]=0;
+                vacia[(i*col)+j]=0;
             }
 
         }
     }
-    return vacia_bit;
+    return vacia;
 }
 
 int** stepP_int(int **matriz, int fil, int col, int32_t nt){
@@ -210,7 +210,7 @@ int** stepP_int(int **matriz, int fil, int col, int32_t nt){
 
 //Comienza seccion de ejecucion del juego de la vida con procesamiento secuencial
 boost::dynamic_bitset<> stepS_bit(boost::dynamic_bitset<> matriz, int fil, int col){
-    vacia_bit=generar_matriz_bit(fil,col);
+    boost::dynamic_bitset<> vacia=generar_matriz_bit(fil,col);
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             int cont=0;
@@ -243,16 +243,16 @@ boost::dynamic_bitset<> stepS_bit(boost::dynamic_bitset<> matriz, int fil, int c
 
 
             if(matriz[(i*col)+j]==0 && cont==3){
-                vacia_bit[(i*col)+j]=1;
+                vacia[(i*col)+j]=1;
             }else if(matriz[(i*col)+j]==1 && (cont==2 || cont==3)){
-                vacia_bit[(i*col)+j]=1;
+                vacia[(i*col)+j]=1;
             }else{
-                vacia_bit[(i*col)+j]=0;
+                vacia[(i*col)+j]=0;
             }
 
         }
     }
-    return vacia_bit;
+    return vacia;
 }
 
 int** stepS_int(int **matriz, int fil, int col){
@@ -301,7 +301,7 @@ int** stepS_int(int **matriz, int fil, int col){
 }
 //Termina seccion de ejecucion del juego de la vida con procesamiento secuencial
 
-boost::dynamic_bitset<> vacia_bit;
+
 
 int main(int argc , char *argv []){
     int col=5;
@@ -411,12 +411,10 @@ int main(int argc , char *argv []){
             if(seq){
                 t1.start();
                 matriz=stepS_bit(matriz,fil,col);
-                delete[] vacia_bit;
                 t1.stop();
             }else{
                 t1.start();
                 matriz=stepP_bit(matriz,fil,col,nt);
-                delete[] vacia_bit;
                 t1.stop();
             }
             time=time+t1.elapsed<std::chrono::milliseconds>();
