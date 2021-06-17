@@ -369,13 +369,15 @@ int main(int argc , char *argv []){
         Timer t1;
         double time=0;
         for (int i=0 ; i<iter ; i++){
-            t1.start();
             if(seq){
+                t1.start();
                 matriz=stepS_int(matriz,fil,col);
+                t1.stop();
             }else{
+                t1.start();
                 matriz=stepP_int(matriz,fil,col,nt);
+                t1.stop();
             }
-            t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
             if(show){
                 mostrar_int(matriz,fil,col);
@@ -404,13 +406,15 @@ int main(int argc , char *argv []){
         Timer t1;
         double time=0;
         for (int i=0 ; i<iter ; i++){
-            t1.start();
             if(seq){
+                t1.start();
                 matriz=stepS_bit(matriz,fil,col);
+                t1.stop();
             }else{
+                t1.start();
                 matriz=stepP_bit(matriz,fil,col,nt);
+                t1.stop();
             }
-            t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
             if(show){
                 mostrar_bit(matriz,fil,col);
