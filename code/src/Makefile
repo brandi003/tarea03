@@ -2,7 +2,7 @@ CC=gcc
 CXX=g++
 RM=rm -f
 
-TARGET=tarea
+TARGET=./tarea03
 
 INCLUDES=-I./include -I.
 LDFLAGS=
