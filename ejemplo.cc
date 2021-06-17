@@ -28,11 +28,6 @@ void help(){
     std::cout << std::endl;
     std::cout << "-nt  ---> sirve para especificar la cantidad de procesos con las que se"      << std::endl;
     std::cout << "simulara el juego de la vida, este tiene que ir acompañado con un valor"      << std::endl;
-    std::cout << "numerico entero mayor a 0 (esto afectara al tiempo que tardara )"             << std::endl;
-    std::cout << "en ejecutar el programa)"                                                     << std::endl;
-    std::cout << std::endl;
-    std::cout << "-nt  ---> sirve para especificar la cantidad de procesos con las que se"      << std::endl;
-    std::cout << "simulara el juego de la vida, este tiene que ir acompañado con un valor"      << std::endl;
     std::cout << "numerico entero mayor a 0 (esto afectara al tiempo que tardara"               << std::endl;
     std::cout << "en ejecutar el programa) no es compatible con el parametro -seq"              << std::endl;
     std::cout << std::endl;
@@ -48,11 +43,8 @@ void help(){
     std::cout << "-iter  ---> sirve para especificar cuantas generaciones se quieren generar"   << std::endl;
     std::cout << "tiene que ir acompañado por un numero entero mayor a 0"                       << std::endl;
     std::cout << std::endl;
-    std::cout << "-bit  ---> ejecuta el programa usando bits como tipo de datos, no es"         << std::endl;
-    std::cout << "compatible con los parametros -int (por defecto se usan chars"                << std::endl;
-    std::cout << std::endl;
     std::cout << "-int  ---> ejecuta el programa usando enteros como tipo de datos, no es"      << std::endl;
-    std::cout << "compatible con los parametros -bit (por defecto se usan chars"                << std::endl;
+    std::cout << "compatible con los parametros -bit (por defecto se usan bits)"                << std::endl;
     std::cout << std::endl;
 }
 
@@ -82,17 +74,6 @@ boost::dynamic_bitset<> generar_matriz_bit(int fil, int col){
     return x;
 }
 
-char** generar_vacia_char(int fil, int col){
-    char** matriz = new char*[fil];
-    for (int i=0 ; i<fil ; i++){
-        matriz[i] = new char[col];
-        for (int j=0 ; j<col ; j++){
-            matriz[i][j]='#';
-        }
-    }
-    return matriz;
-}
-
 int** generar_vacia_int(int fil, int col){
     int** matriz = new int*[fil];
     for (int i=0 ; i<fil ; i++){
@@ -113,16 +94,6 @@ void mostrar_bit(boost::dynamic_bitset<> matriz, int fil, int col){
         for(int j=0;j< col;j++){
             std::cout << matriz[(i*col)+j];
             cont++;
-        }
-        std::cout<<std::endl;
-    }
-    std::cout << std::endl;
-}
-
-void mostrar_char(char **matriz, int fil, int col){
-    for(int i=0;i< fil;i++){
-        for(int j=0;j< col;j++){
-            std::cout<<matriz[i][j];
         }
         std::cout<<std::endl;
     }
@@ -187,53 +158,6 @@ boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int c
 
         }
     }
-    return vacia;
-}
-
-char** stepP_char(char **matriz, int fil, int col, int32_t nt){
-    char** vacia=generar_vacia_char(fil,col);
-    #pragma omp parallel for num_threads(nt)
-    for (int i=0 ;  i<fil ; i++){
-        for (int j=0 ; j<col ; j++){
-            int cont=0;
-            int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
-            bool* vecinosB=get_vecinos(i,j,col,fil);
-            if(vecinosB[0] && matriz[vecinos[0][0]][vecinos[0][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[1] && matriz[vecinos[1][0]][vecinos[1][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[2] && matriz[vecinos[2][0]][vecinos[2][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[3] && matriz[vecinos[3][0]][vecinos[3][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[4] && matriz[vecinos[4][0]][vecinos[4][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[5] && matriz[vecinos[5][0]][vecinos[5][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[6] && matriz[vecinos[6][0]][vecinos[6][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[7] && matriz[vecinos[7][0]][vecinos[7][1]]=='*'){
-                cont++;
-            }
-
-            if(matriz[i][j]=='#' && cont==3){
-                vacia[i][j]='*';
-            }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
-                vacia[i][j]='*';
-            }else{
-                vacia[i][j]='#';
-            }
-
-        }
-    }
-    delete matriz;
     return vacia;
 }
 
@@ -331,51 +255,6 @@ boost::dynamic_bitset<> stepS_bit(boost::dynamic_bitset<> matriz, int fil, int c
     return vacia;
 }
 
-char** stepS_char(char **matriz, int fil, int col){
-    char** vacia=generar_vacia_char(fil,col);
-    for (int i=0 ;  i<fil ; i++){
-        for (int j=0 ; j<col ; j++){
-            int cont=0;
-            int vecinos[8][2]={{i-1,j-1},{i,j-1},{i+1,j-1},{i-1,j},{i+1,j},{i-1,j+1},{i,j+1},{i+1,j+1}};
-            bool* vecinosB=get_vecinos(i,j,col,fil);
-            if(vecinosB[0] && matriz[vecinos[0][0]][vecinos[0][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[1] && matriz[vecinos[1][0]][vecinos[1][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[2] && matriz[vecinos[2][0]][vecinos[2][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[3] && matriz[vecinos[3][0]][vecinos[3][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[4] && matriz[vecinos[4][0]][vecinos[4][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[5] && matriz[vecinos[5][0]][vecinos[5][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[6] && matriz[vecinos[6][0]][vecinos[6][1]]=='*'){
-                cont++;
-            }
-            if(vecinosB[7] && matriz[vecinos[7][0]][vecinos[7][1]]=='*'){
-                cont++;
-            }
-            if(matriz[i][j]=='#' && cont==3){
-                vacia[i][j]='*';
-            }else if(matriz[i][j]=='*' && (cont==2 || cont==3)){
-                vacia[i][j]='*';
-            }else{
-                vacia[i][j]='#';
-            }
-            
-
-        }
-    }
-    return vacia;
-}
-
 int** stepS_int(int **matriz, int fil, int col){
     int** vacia=generar_vacia_int(fil,col);
     for (int i=0 ;  i<fil ; i++){
@@ -431,10 +310,8 @@ int main(int argc , char *argv []){
     bool show=false;
     int iter=5;
     bool d_int=false;
-    bool d_bit=false;
     bool flag=false;
     std::string mystr;
-    int cont_datos=0;
     for (int i=0; i < argc; i++) {
         mystr=argv[i];
         if (mystr == "-ncol") {
@@ -459,66 +336,21 @@ int main(int argc , char *argv []){
         if (mystr == "-iter") {
             iter = atoi(argv[i+1]);
         }
-        if (mystr == "-bit") {
-            d_bit=true;
-            cont_datos++;
-        }
         if (mystr == "-int") {
             d_int=true;
-            cont_datos++;
         }
         if (mystr == "-help" || mystr == "-h") {
             help();
             return (EXIT_SUCCESS);
         }
     }
-    if(cont_datos>1){
-        std::cout << "solo puede ingresar 1 tipo de dato a la vez, revise los parametros" << std::endl;
-        return (EXIT_SUCCESS);
-    }
-
     if(flag && seq){
         std::cout << "los parametros -seq y -nt no son compatibles, porfavor elimine uno de los 2" << std::endl;
         return (EXIT_SUCCESS);
     }
 
 
-    if(d_bit){
-        std::cout << "ejecutando la version del juego de la vida usando bits" << std::endl;
-        boost::dynamic_bitset<> matriz = generar_matriz_bit(fil,col);
-        int cont=0;
-        for (int i=0 ; i<fil ; i++){
-            for (int j=0 ; j<col ; j++){
-                if(prob>=generar_numero()){
-                    matriz[cont]=1;
-                }
-                cont++;
-            }
-        }
-
-        if(show){
-            mostrar_bit(matriz,fil,col);
-        }
-        std::cout << std::endl;
-        Timer t1;
-        double time=0;
-        for (int i=0 ; i<iter ; i++){
-            t1.start();
-            if(seq){
-                matriz=stepS_bit(matriz,fil,col);
-            }else{
-                matriz=stepP_bit(matriz,fil,col,nt);
-            }
-            t1.stop();
-            time=time+t1.elapsed<std::chrono::milliseconds>();
-            if(show){
-                mostrar_bit(matriz,fil,col);
-            }
-            
-        }
-        std::cout << "elapsed:" << time << "ms\n";
-        std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
-    }else if(d_int){
+    if(d_int){
         std::cout << "ejecutando la version del juego de la vida usando enteros" << std::endl;
         int** matriz = new int*[fil];
         for (int i=0 ; i<fil ; i++){
@@ -553,39 +385,35 @@ int main(int argc , char *argv []){
         std::cout << "elapsed:" << time << "ms\n";
         std::cout << "elapsed everage per iteration:" << time/iter << "ms\n";
     }else{
-        std::cout << "ejecutando la version del juego de la vida usando char" << std::endl;
-        char** matriz = new char*[fil];
+        std::cout << "ejecutando la version del juego de la vida usando bits" << std::endl;
+        boost::dynamic_bitset<> matriz = generar_matriz_bit(fil,col);
+        int cont=0;
         for (int i=0 ; i<fil ; i++){
-            matriz[i] = new char[col];
             for (int j=0 ; j<col ; j++){
                 if(prob>=generar_numero()){
-                    matriz[i][j]='*';
-                }else{
-                    matriz[i][j]='#';
+                    matriz[cont]=1;
                 }
+                cont++;
             }
         }
+
         if(show){
-            mostrar_char(matriz,fil,col);
+            mostrar_bit(matriz,fil,col);
         }
+        std::cout << std::endl;
         Timer t1;
         double time=0;
         for (int i=0 ; i<iter ; i++){
-            char** aux;
             t1.start();
             if(seq){
-                matriz=stepS_char(matriz,fil,col);
+                matriz=stepS_bit(matriz,fil,col);
             }else{
-                matriz=stepP_char(matriz,fil,col,nt);
+                matriz=stepP_bit(matriz,fil,col,nt);
             }
-            aux=matriz;
-            delete matriz;
-            matriz=aux;
-            delete aux;
             t1.stop();
             time=time+t1.elapsed<std::chrono::milliseconds>();
             if(show){
-                mostrar_char(matriz,fil,col);
+                mostrar_bit(matriz,fil,col);
             }
             
         }
