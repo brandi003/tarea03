@@ -116,7 +116,7 @@ void mostrar_int(int **matriz, int fil, int col){
 
 //Comienza seccion de ejecucion del juego de la vida con procesamiento paralelo
 boost::dynamic_bitset<> stepP_bit(boost::dynamic_bitset<> matriz, int fil, int col, int32_t nt){
-    boost::dynamic_bitset<> vacia=generar_matriz_bit(fil,col);
+    vacia=generar_matriz_bit(fil,col);
     #pragma omp parallel for num_threads(nt)
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
@@ -210,7 +210,7 @@ int** stepP_int(int **matriz, int fil, int col, int32_t nt){
 
 //Comienza seccion de ejecucion del juego de la vida con procesamiento secuencial
 boost::dynamic_bitset<> stepS_bit(boost::dynamic_bitset<> matriz, int fil, int col){
-    boost::dynamic_bitset<> vacia=generar_matriz_bit(fil,col);
+    vacia=generar_matriz_bit(fil,col);
     for (int i=0 ;  i<fil ; i++){
         for (int j=0 ; j<col ; j++){
             int cont=0;
@@ -300,6 +300,8 @@ int** stepS_int(int **matriz, int fil, int col){
     return vacia;
 }
 //Termina seccion de ejecucion del juego de la vida con procesamiento secuencial
+
+boost::dynamic_bitset<> vacia;
 
 int main(int argc , char *argv []){
     int col=5;
@@ -409,10 +411,12 @@ int main(int argc , char *argv []){
             if(seq){
                 t1.start();
                 matriz=stepS_bit(matriz,fil,col);
+                delete[] vacia;
                 t1.stop();
             }else{
                 t1.start();
                 matriz=stepP_bit(matriz,fil,col,nt);
+                delete[] vacia;
                 t1.stop();
             }
             time=time+t1.elapsed<std::chrono::milliseconds>();
