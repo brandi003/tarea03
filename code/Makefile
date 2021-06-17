@@ -1,4 +1,4 @@
-RCDIR=src
+SRCDIR=src
 default: all
 
 all:
